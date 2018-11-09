@@ -1,9 +1,9 @@
 import React, {Component} from "react";
 import {SectionList, TextInput, TouchableOpacity, View} from "react-native";
 import {colors} from "../../constants/Colors";
-import {capitalizeFirstLetter} from "../../utils/string";
-import {HelveticaMediumText} from "../StyledText";
-import {Icon} from "../Icon";
+import {capitalizeFirstLetter} from "../../utils/string/index";
+import {HelveticaMediumText} from "../StyledText/index";
+import {Icon} from "../Icon/index";
 import {styles} from "./Autocomplete.styles";
 
 class Autocomplete extends Component {

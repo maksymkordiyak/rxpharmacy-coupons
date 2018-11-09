@@ -1,9 +1,9 @@
 import React from "react";
 import {Image, Platform, ScrollView, StyleSheet, View} from "react-native";
 import {WebBrowser} from "expo";
-import {Button} from "../components/Button";
-import {LogoTitle} from "../components/Headers";
-import Autocomplete from "../components/Autocomplete";
+import {Button} from "../components/Button/index";
+import {LogoTitle} from "../components/Headers/index";
+import Autocomplete from "../components/Autocomplete/index";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {

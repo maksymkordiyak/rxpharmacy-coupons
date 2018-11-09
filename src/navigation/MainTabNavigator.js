@@ -1,7 +1,7 @@
 import React from "react";
 import {createStackNavigator, createBottomTabNavigator} from "react-navigation";
 import {colors} from "../constants/Colors";
-import {TabBarIcon} from "../components/TabBarIcon";
+import {TabBarIcon} from "../components/TabBarIcon/index";
 import HomeScreen from "../screens/HomeScreen";
 import SuperSavingsScreen from "../screens/SuperSavingsScreen";
 

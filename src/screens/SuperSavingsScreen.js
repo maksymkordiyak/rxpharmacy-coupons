@@ -1,7 +1,7 @@
 import React from "react";
 import {ScrollView, StyleSheet} from "react-native";
 import {ExpoLinksView} from "@expo/samples";
-import {BasicHeader} from "../components/Headers";
+import {BasicHeader} from "../components/Headers/index";
 
 export default class SuperSavingsScreen extends React.Component {
   static navigationOptions = {

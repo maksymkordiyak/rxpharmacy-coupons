@@ -1,7 +1,11 @@
 import React from "react";
 import {Image, StyleSheet, View} from "react-native";
-import {IconButton} from "../Button";
-import {HelveticaMediumText, SerifText, SerifBoldText} from "../StyledText";
+import {IconButton} from "../Button/index";
+import {
+  HelveticaMediumText,
+  SerifText,
+  SerifBoldText,
+} from "../StyledText/index";
 
 export const LogoTitle = () => (
   <View style={styles.row}>
@@ -39,6 +43,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
+    justifyContent: "flex-start",
+    width: "100%",
+    paddingHorizontal: 10,
   },
   pharmacyHeaderText: {
     fontSize: 30,
@@ -46,7 +53,10 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   basicHeaderText: {
+    paddingTop: 6,
+    paddingLeft: 10,
     fontSize: 22,
+    lineHeight: 30,
     letterSpacing: -0.65,
     color: "#FFFFFF",
   },

@@ -2,7 +2,7 @@ import React from "react";
 import {Text, TouchableOpacity} from "react-native";
 import {bool, func, object, oneOf, number, string} from "prop-types";
 import {styles, BUTTON_TYPES, BUTTON_SIZES} from "./Button.styles";
-import {Icon, ICON_SETS} from "../Icon";
+import {Icon, ICON_SETS} from "../Icon/index";
 
 export const Button = ({
   type,

@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {colors} from "../../constants/Colors";
 
 export default StyleSheet.create({
   input: {
@@ -11,9 +12,11 @@ export default StyleSheet.create({
     marginTop: 20,
   },
   valid: {
-    borderColor: "#53E69D",
+    color: colors.textPrimary,
+    backgroundColor: colors.lightGreenColor,
   },
   invalid: {
-    borderColor: "#F55E64",
+    color: colors.errorText,
+    backgroundColor: colors.errorBackground,
   },
 });

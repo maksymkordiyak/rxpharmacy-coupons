@@ -1,5 +1,6 @@
 import {StyleSheet} from "react-native";
 import {colors} from "../../constants/Colors";
+import {styles} from "../Autocomplete/Autocomplete.styles";
 
 export default StyleSheet.create({
   options: {
@@ -28,17 +29,16 @@ export default StyleSheet.create({
   },
   primaryText: {
     color: colors.primary,
+    borderBottomColor: colors.primary,
+    borderBottomWidth: 1,
   },
   input: {
     borderWidth: 0,
     marginLeft: 10,
   },
-  valid: {
-    color: colors.textPrimary,
-    backgroundColor: colors.lightGreenColor,
-  },
   invalid: {
     color: colors.errorText,
-    backgroundColor: colors.errorBackground,
+    borderBottomColor: colors.errorBackground,
+    borderBottomWidth: 1,
   },
 });

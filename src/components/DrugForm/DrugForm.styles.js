@@ -1,4 +1,5 @@
 import {StyleSheet} from "react-native";
+import {colors} from "../../constants/Colors";
 
 export default StyleSheet.create({
   container: {
@@ -8,6 +9,9 @@ export default StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
+  },
+  errorText: {
+    color: colors.errorBackground,
   },
   submitBtn: {
     alignSelf: "center",

@@ -52,9 +52,9 @@ HomeStack.navigationOptions = {
   tabBarOptions,
 };
 
-const LinksStack = createStackNavigator(
+const SuperSavingsStack = createStackNavigator(
   {
-    Links: SuperSavingsScreen,
+    SuperSavings: SuperSavingsScreen,
   },
   {
     navigationOptions: {
@@ -71,7 +71,7 @@ const LinksStack = createStackNavigator(
   },
 );
 
-LinksStack.navigationOptions = {
+SuperSavingsStack.navigationOptions = {
   tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
@@ -88,5 +88,5 @@ LinksStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  SuperSavingsStack,
 });

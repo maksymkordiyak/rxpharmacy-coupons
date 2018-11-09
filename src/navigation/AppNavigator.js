@@ -15,6 +15,6 @@ export default createSwitchNavigator(
     Main: MainTabNavigator,
   },
   {
-    initialRouteName: "Intro",
+    initialRouteName: "Main",
   },
 );

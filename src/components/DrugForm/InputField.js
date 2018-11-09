@@ -1,13 +1,18 @@
 import React from "react";
-import {TextInput, View} from "react-native";
+import {TextInput, Text, View} from "react-native";
 import {any, bool, func, shape, string} from "prop-types";
 import styles from "./InputField.styles";
 
-export const InputField = ({input, meta, ...inputProps}) => {
-  let validationStyles = null;
-  if (meta.touched && !meta.active) {
-    validationStyles = meta.valid ? styles.valid : styles.invalid;
-  }
+export const InputField = ({
+  input,
+  meta,
+  ...inputProps
+}) => {
+  console.log("InputField error:", meta);
+  let validationStyles;
+  // if (touched && !active) {
+  //   validationStyles = valid ? styles.valid : styles.invalid;
+  // }
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
@@ -19,6 +24,7 @@ export const InputField = ({input, meta, ...inputProps}) => {
         value={input.value}
         style={styles.input}
       />
+      {meta.touched && meta.error && <Text>{meta.error}</Text>}
     </View>
   );
 };

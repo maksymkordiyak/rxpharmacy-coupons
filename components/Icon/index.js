@@ -36,7 +36,7 @@ export const Icon = ({name, size, color, style, iconSet}) => {
   return (
     <IconSet
       name={name}
-      size={size || 32}
+      size={size || 20}
       color={color || "#ffffff"}
       style={style}
     />

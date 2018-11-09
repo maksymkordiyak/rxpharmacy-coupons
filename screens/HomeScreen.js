@@ -44,6 +44,7 @@ export default class HomeScreen extends React.Component {
             <Button
               type="secondary"
               left="md-share"
+              size={20}
               middle="Test"
               iconSet="Ionicons"
             />

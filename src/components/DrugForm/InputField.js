@@ -15,7 +15,6 @@ export const InputField = ({
   if (touched && !active) {
     validationStyles = !valid && styles.invalid;
   }
-  const count = index + 1;
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>

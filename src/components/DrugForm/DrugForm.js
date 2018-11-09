@@ -58,7 +58,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
         name="drug_0"
         component={InputField}
         placeholder="Add a drug"
-        index={0}
+        index={1}
       />
     </View>
     {submitFailed && error && <Text style={styles.errorText}>{error}</Text>}
@@ -71,7 +71,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
             name={`drug_${properIndex}`}
             component={InputField}
             placeholder="Add a drug"
-            index={properIndex}
+            index={properIndex + 1}
           />
         </View>
       );
@@ -89,7 +89,7 @@ export const MyForm = ({handleSubmit, submitting}) => (
       type="secondary"
       right="md-arrow-dropright"
       size={20}
-      middle="SUBMIT"
+      middle="Finalize Discount"
       iconSet="Ionicons"
     />
   </ScrollView>

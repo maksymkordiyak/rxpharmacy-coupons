@@ -1,9 +1,27 @@
 import React from "react";
 import {string} from "prop-types";
-import {Ionicons} from "@expo/vector-icons";
+import {Ionicons, Octicons} from "@expo/vector-icons";
 
-export const Icon = ({name, size, color}) => {
-  return <Ionicons name={name} size={size || 32} color={color || "#ffffff"} />;
+export const Icon = ({name, size, color, style}) => {
+  return (
+    <Ionicons
+      name={name}
+      size={size || 32}
+      color={color || "#ffffff"}
+      style={style}
+    />
+  );
+};
+
+export const Octicon = ({name, size, color, style}) => {
+  return (
+    <Octicons
+      name={name}
+      size={size || 32}
+      color={color || "#ffffff"}
+      style={style}
+    />
+  );
 };
 
 Icon.propTypes = {

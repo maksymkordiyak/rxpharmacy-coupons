@@ -9,6 +9,8 @@ import {
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter} from "../../utils/string";
 import {HelveticaMediumText} from "../StyledText";
+import {Octicon} from "../Icon";
+
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +26,12 @@ class Autocomplete extends Component {
 
     return (
       <View>
+        <Octicon
+          size={20}
+          style={styles.plus}
+          name="plus"
+          color={colors.concrete}
+        />
         <TextInput
           style={styles.input}
           onChangeText={text => this.setState({inputValue: text})}
@@ -73,6 +81,11 @@ class Autocomplete extends Component {
 }
 
 const styles = StyleSheet.create({
+  plus: {
+    position: "absolute",
+    left: 16.6,
+    top: 9,
+  },
   suggestionList: {
     position: "relative",
     top: -6,
@@ -80,7 +93,7 @@ const styles = StyleSheet.create({
   input: {
     fontSize: 20,
     textDecorationLine: "none",
-    paddingLeft: 16,
+    paddingLeft: 40,
     height: 42,
     width: 358,
     borderWidth: 1,

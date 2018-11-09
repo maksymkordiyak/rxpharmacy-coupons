@@ -18,6 +18,7 @@ class Autocomplete extends Component {
 
   render() {
     const {inputValue} = this.state;
+    const {sectionName} = this.props;
 
     return (
       <View style={styles.container}>
@@ -55,7 +56,7 @@ class Autocomplete extends Component {
           )}
           sections={[
             {
-              title: "Drugs",
+              title: sectionName,
               data: [
                 "lipichol 540",
                 "lipidshield plus",
@@ -73,5 +74,9 @@ class Autocomplete extends Component {
     );
   }
 }
+
+Autocomplete.defaultProps = {
+  sectionName: "Drugs",
+};
 
 export default Autocomplete;

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec20b108-20df-470b-ab43-e27573b13f6a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Autocomplete/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Autocomplete/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button/Button.styles.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Button/Button.styles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Button/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Button/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Icon/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Icon/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/constants/Colors.js" beforeDir="false" afterPath="$PROJECT_DIR$/constants/Colors.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/HomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/HomeScreen.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,12 +44,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="48" />
-          <entry key="js" value="3042" />
+          <entry key="js" value="3060" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="3042" />
+          <entry key="JavaScript" value="3060" />
           <entry key="PLAIN_TEXT" value="48" />
         </counts>
       </usages-collector>
@@ -72,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-756">
-              <caret line="77" column="77" selection-start-line="77" selection-start-column="77" selection-end-line="77" selection-end-column="77" />
+            <state relative-caret-position="294">
+              <caret line="125" column="4" lean-forward="true" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -107,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/Autocomplete/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-960">
-              <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+            <state relative-caret-position="363">
+              <caret line="122" column="17" lean-forward="true" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -123,7 +126,7 @@
         <entry file="file://$PROJECT_DIR$/constants/Colors.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="237">
-              <caret line="14" column="10" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="10" />
+              <caret line="27" column="10" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -166,8 +169,8 @@
         <option value="$PROJECT_DIR$/utils/string/index.js" />
         <option value="$PROJECT_DIR$/components/StyledText/index.js" />
         <option value="$PROJECT_DIR$/components/Icon/index.js" />
-        <option value="$PROJECT_DIR$/screens/HomeScreen.js" />
         <option value="$PROJECT_DIR$/components/Autocomplete/index.js" />
+        <option value="$PROJECT_DIR$/screens/HomeScreen.js" />
       </list>
     </option>
   </component>
@@ -310,11 +313,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21442000" />
+    <option name="totallyTimeSpent" value="21837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="35" y="25" width="1885" height="1055" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Favorites" order="1" side_tool="true" />
@@ -512,7 +514,7 @@
     <entry file="file://$PROJECT_DIR$/constants/Colors.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="10" />
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="2" selection-end-line="27" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -526,22 +528,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
+    <entry file="file://$PROJECT_DIR$/components/Autocomplete/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
-          <caret line="77" column="77" selection-start-line="77" selection-start-column="77" selection-end-line="77" selection-end-column="77" />
+        <state relative-caret-position="363">
+          <caret line="122" column="17" lean-forward="true" selection-start-line="122" selection-start-column="17" selection-end-line="122" selection-end-column="17" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/Autocomplete/index.js">
+    <entry file="file://$PROJECT_DIR$/screens/HomeScreen.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-960">
-          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        <state relative-caret-position="294">
+          <caret line="125" column="4" lean-forward="true" selection-start-line="125" selection-start-column="4" selection-end-line="125" selection-end-column="4" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -9,7 +9,7 @@ import {
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter} from "../../utils/string";
 import {HelveticaMediumText} from "../StyledText";
-import {Octicon} from "../Icon";
+import {Icon} from "../Icon";
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -26,7 +26,8 @@ class Autocomplete extends Component {
 
     return (
       <View style={styles.container}>
-        <Octicon
+        <Icon
+          iconSet="Octicons"
           size={20}
           style={styles.plus}
           name="plus"
@@ -35,7 +36,7 @@ class Autocomplete extends Component {
         <TextInput
           style={styles.input}
           onChangeText={text => this.setState({inputValue: text})}
-          placeholder="Add a Drzugs"
+          placeholder="Add a Drugs"
           placeholderTextColor={colors.concrete}
           value={inputValue}
           autoCorrect={false}
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
   },
   listFooter: {
     height: 16.7,
-    borderBottomColor: colors.darkGreen,
+    borderBottomColor: colors.primary,
   },
   input: {
     fontSize: 20,
@@ -106,7 +107,7 @@ const styles = StyleSheet.create({
     width: 358,
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: colors.darkGreen,
+    borderColor: colors.primary,
     fontFamily: "HelveticaMedium",
   },
   listItem: {
@@ -115,8 +116,8 @@ const styles = StyleSheet.create({
     height: 41,
     borderTopWidth: 0,
     borderWidth: 1,
-    borderLeftColor: colors.darkGreen,
-    borderRightColor: colors.darkGreen,
+    borderLeftColor: colors.primary,
+    borderRightColor: colors.primary,
     borderBottomColor: colors.dividerColor,
   },
   listItemText: {
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
   },
   listHeader: {
     borderTopWidth: 1,
-    borderTopColor: colors.darkGreen,
+    borderTopColor: colors.primary,
     height: 35.8,
   },
   listHeaderText: {

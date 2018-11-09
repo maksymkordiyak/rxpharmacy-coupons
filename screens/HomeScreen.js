@@ -9,16 +9,21 @@ import {
   View,
 } from "react-native";
 import {WebBrowser} from "expo";
+import {Octicons} from "@expo/vector-icons";
 import {MonoText, SerifText, SerifBoldText} from "../components/StyledText";
-import {IconButton} from "../components/Button";
-
+import {Button, IconButton} from "../components/Button";
 import Autocomplete from "../components/Autocomplete";
 
 export class LogoTitle extends React.Component {
   render() {
     return (
       <View style={styles.row}>
-        <IconButton onClick={() => console.log("123")} name="md-menu" />
+        <IconButton
+          onClick={() => console.log("123")}
+          name="three-bars"
+          size={32}
+          iconSet="Octicons"
+        />
         <Image
           source={require("../assets/images/header_logo.png")}
           style={styles.headerLogo}
@@ -75,11 +80,13 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View>
-              <Autocomplete />
-            </View>
+            <Button
+              type="secondary"
+              left="md-share"
+              middle="Test"
+              size={15.6}
+              iconSet="Ionicons"
+            />
           </View>
 
           <View style={styles.helpContainer}>
@@ -98,7 +105,6 @@ export default class HomeScreen extends React.Component {
           <Text style={styles.tabBarInfoText}>
             This is a tab bar. You can edit it in:
           </Text>
-
           <View
             style={[styles.codeHighlightContainer, styles.navigationFilename]}
           >

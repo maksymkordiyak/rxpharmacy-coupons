@@ -1,21 +1,40 @@
 import React from "react";
-import {string} from "prop-types";
-import {Ionicons, Octicons} from "@expo/vector-icons";
+import {string, object, oneOf, number} from "prop-types";
+import {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial,
+} from "@expo/vector-icons";
 
-export const Icon = ({name, size, color, style}) => {
-  return (
-    <Ionicons
-      name={name}
-      size={size || 32}
-      color={color || "#ffffff"}
-      style={style}
-    />
-  );
-};
+export const ICON_SETS = Object.freeze({
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial,
+});
 
-export const Octicon = ({name, size, color, style}) => {
+export const Icon = ({name, size, color, style, iconSet}) => {
+  const IconSet = ICON_SETS[iconSet] || Ionicons;
+
   return (
-    <Octicons
+    <IconSet
       name={name}
       size={size || 32}
       color={color || "#ffffff"}
@@ -25,7 +44,9 @@ export const Octicon = ({name, size, color, style}) => {
 };
 
 Icon.propTypes = {
+  iconSet: oneOf(Object.keys(ICON_SETS)).isRequired,
   name: string.isRequired,
   color: string,
-  size: string,
+  size: number,
+  style: object,
 };

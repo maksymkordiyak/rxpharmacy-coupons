@@ -1,11 +1,13 @@
 import React from "react";
 import {Text, TouchableOpacity} from "react-native";
-import {bool, func, object, oneOf, string} from "prop-types";
-import {styles, BUTTON_TYPES} from "./Button.styles";
-import {Icon} from "../Icon";
+import {bool, func, object, oneOf, number, string} from "prop-types";
+import {styles, BUTTON_TYPES, BUTTON_SIZES} from "./Button.styles";
+import {Icon, ICON_SETS} from "../Icon";
 
 export const Button = ({
   type,
+  iconSet,
+  buttonSize,
   style,
   left,
   right,
@@ -17,31 +19,41 @@ export const Button = ({
 }) => {
   return (
     <TouchableOpacity
-      type={BUTTON_TYPES[type]}
       onPress={onClick}
-      style={[styles.iconContainer, style]}
+      style={[
+        {
+          backgroundColor: BUTTON_TYPES[type] || "secondary",
+          minHeight: BUTTON_SIZES[buttonSize] || 34.1,
+        },
+        styles.buttonContainer,
+        style,
+      ]}
       disabled={disabled}
     >
-      {left && <Icon name={left} size={size} color={color} />}
+      {left && <Icon name={left} size={size} color={color} iconSet={iconSet} />}
       {middle && (
         <Text style={styles.btnText} ellipsizeMode="tail">
           {middle.toUpperCase()}
         </Text>
       )}
-      {right && <Icon name={right} size={size} color={color} />}
+      {right && (
+        <Icon name={right} size={size} color={color} iconSet={iconSet} />
+      )}
     </TouchableOpacity>
   );
 };
 
 Button.propTypes = {
   type: oneOf(Object.keys(BUTTON_TYPES)),
+  iconSet: oneOf(Object.keys(ICON_SETS)).isRequired,
+  buttonSize: oneOf(Object.keys(BUTTON_SIZES)),
   middle: string.isRequired,
   left: string,
   right: string,
   onClick: func,
   style: object,
   color: string,
-  size: string,
+  size: number,
   disabled: bool,
 };
 
@@ -51,16 +63,17 @@ Button.defaultProps = {
   type: "primary",
 };
 
-export const IconButton = ({onClick, style, name, color, size}) => (
+export const IconButton = ({onClick, style, name, color, size, iconSet}) => (
   <TouchableOpacity style={[styles.iconContainer, style]} onPress={onClick}>
-    <Icon size={size} name={name} color={color} />
+    <Icon size={size} name={name} color={color} iconSet={iconSet} />
   </TouchableOpacity>
 );
 
 IconButton.propTypes = {
+  iconSet: oneOf(Object.keys(ICON_SETS)).isRequired,
   name: string.isRequired,
   style: object,
   color: string,
   onClick: func,
-  size: string,
+  size: number,
 };

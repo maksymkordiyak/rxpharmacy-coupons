@@ -1,6 +1,11 @@
-import React, { Component } from 'react';
-import {StyleSheet, SectionList, Text, TextInput, TouchableHighlight, View} from 'react-native';
+import React, {Component} from "react";
+import {
+  StyleSheet,
+  SectionList,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  View,
+} from "react-native";
 
-class Autocomplete extends Component {
-
-}
+class Autocomplete extends Component {}

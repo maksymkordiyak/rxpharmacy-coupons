@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec20b108-20df-470b-ab43-e27573b13f6a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/HelveticaNeueLTStd-Bd_0.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/HelveticaNeueLTStd-LtIt.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/HelveticaNeueLTStd-Md_0.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/HelveticaNeueLTStd-Roman_0.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Rokkitt-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Rokkitt-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Uniform-Medium_6.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/Uniform-Regular_1.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/arial.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/fonts/arialbd.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/pharmacy_logos.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/Autocomplete/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/StyledText.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/StyledText.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TabBarIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/TabBarIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-    </list>
+    <list default="true" id="ec20b108-20df-470b-ab43-e27573b13f6a" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -86,11 +67,12 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="gitignore" value="8" />
+          <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="8" />
+          <entry key="PLAIN_TEXT" value="15" />
         </counts>
       </usages-collector>
     </session>
@@ -136,8 +118,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
@@ -252,23 +234,6 @@
             <path>
               <item name="rxpharmacy-coupons" type="b2602c69:ProjectViewProjectNode" />
               <item name="rxpharmacy-coupons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rxpharmacy-coupons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rxpharmacy-coupons" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rxpharmacy-coupons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rxpharmacy-coupons" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Icon" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="rxpharmacy-coupons" type="b2602c69:ProjectViewProjectNode" />
-              <item name="rxpharmacy-coupons" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="StyledText" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="rxpharmacy-coupons" type="b2602c69:ProjectViewProjectNode" />
@@ -443,21 +408,28 @@
       <updated>1541748538529</updated>
       <workItem from="1541748539680" duration="8719000" />
     </task>
+    <task id="LOCAL-00001" summary="Commit">
+      <created>1541767197030</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1541767197030</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8737000" />
+    <option name="totallyTimeSpent" value="8803000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="npm" order="0" side_tool="true" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" visible="true" weight="0.25760087" />
+      <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.25760087" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49945414" visible="true" weight="0.39675677" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49945414" visible="true" weight="0.39644352" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50054586" side_tool="true" weight="0.3294979" />
       <window_info anchor="bottom" id="Version Control" order="3" weight="0.3294979" />
       <window_info anchor="bottom" id="Message" order="4" />
@@ -477,6 +449,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/node_modules/@expo/samples/index.js">
@@ -632,8 +608,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

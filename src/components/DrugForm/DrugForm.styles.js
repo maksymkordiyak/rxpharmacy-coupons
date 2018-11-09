@@ -14,7 +14,7 @@ export default StyleSheet.create({
     paddingTop: 7,
     paddingBottom: 7,
     paddingLeft: 28,
-    paddingRight: 21,
+    paddingRight: 28,
     borderBottomWidth: 1,
     borderBottomColor: colors.primary,
   },

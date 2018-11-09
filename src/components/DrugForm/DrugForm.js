@@ -15,6 +15,7 @@ import {
 export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
   <Fragment>
     <Field name="zipCode" component={AddLocation} />
+
     <View style={styles.optionsRow}>
       <View>
         <HelveticaMediumText style={styles.prescriptions}>

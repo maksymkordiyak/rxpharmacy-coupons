@@ -6,38 +6,65 @@ import {InputField} from "./InputField";
 import AddLocation from "../AddLocation";
 import {Button} from "../Button";
 import styles from "./DrugForm.styles";
+import {
+  HelveticaMediumText,
+  HelveticaRegularText,
+  HelveticaBoldText,
+} from "../StyledText";
 
 export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
   <Fragment>
     <Field name="zipCode" component={AddLocation} />
-    <View styles={styles.row}>
-      <Button
-        type="secondary"
-        left="md-add"
-        size={20}
-        middle="Add"
-        iconSet="Ionicons"
-        onClick={() => fields.push({})}
-      />
-      <Button
-        type="secondary"
-        left="md-remove"
-        size={20}
-        middle="Remove"
-        iconSet="Ionicons"
-        onClick={() => fields.remove(fields.length - 1)}
-      />
-    </View>
+
+      <View style={styles.optionsRow}>
+          <View>
+              <HelveticaMediumText style={styles.prescriptions}>
+                  Number of Prescriptions:{" "}
+                  <HelveticaBoldText style={styles.prescriptionsNumber}>
+                      {fields.length + 1}
+                  </HelveticaBoldText>
+              </HelveticaMediumText>
+          </View>
+          <View style={styles.quantityButtons}>
+              <View>
+                  <Button
+                      type="secondary"
+                      left="md-remove"
+                      size={20}
+                      iconSet="Ionicons"
+                      onClick={() => fields.remove(fields.length - 1)}
+                  />
+              </View>
+              <View style={styles.addButton}>
+                  <Button
+                      type="secondary"
+                      left="md-add"
+                      size={20}
+                      iconSet="Ionicons"
+                      onClick={() => fields.push({})}
+                  />
+              </View>
+          </View>
+      </View>
+      <View style={styles.promoTextContainer}>
+          <HelveticaRegularText style={styles.promo}>
+              Add prescriptions to your list to {"\n"} the pharmacy with the best
+              savings.
+          </HelveticaRegularText>
+      </View>
     <View key="drug_0">
       <Field name="drug_0" component={InputField} placeholder="Add a drug" />
     </View>
     {submitFailed && error && <Text style={styles.errorText}>{error}</Text>}
     {fields.map((drug, index) => (
-      <View key={`drug_${index + 1}`}>
+      const properIndex = index + 1;
+
+      <View key={`drug_${properIndex}`}>
         <Field
-          name={`drug_${index + 1}`}
+          name={`drug_${properIndex}`}
           component={InputField}
           placeholder="Add a drug"
+          index={properIndex}
         />
       </View>
     ))}

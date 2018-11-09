@@ -7,6 +7,10 @@ export default StyleSheet.create({
     padding: 5,
   },
   inputContainer: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.4)",
     marginTop: 20,
@@ -18,5 +22,8 @@ export default StyleSheet.create({
   invalid: {
     color: colors.errorText,
     backgroundColor: colors.errorBackground,
+  },
+  index: {
+    color: colors.tertiary,
   },
 });

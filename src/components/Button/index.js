@@ -50,7 +50,7 @@ Button.propTypes = {
   type: oneOf(Object.keys(BUTTON_TYPES)).isRequired,
   iconSet: oneOf(Object.keys(ICON_SETS)),
   buttonSize: oneOf(Object.keys(BUTTON_SIZES)),
-  middle: string.isRequired,
+  middle: string,
   left: string,
   right: string,
   onClick: func,

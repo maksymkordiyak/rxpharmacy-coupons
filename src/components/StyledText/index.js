@@ -13,3 +13,11 @@ export const SerifBoldText = props => (
 export const HelveticaMediumText = props => (
   <Text {...props} style={[{fontFamily: "HelveticaMedium"}, props.style]} />
 );
+
+export const HelveticaBoldText = props => (
+  <Text {...props} style={[{fontFamily: "HelveticaBold"}, props.style]} />
+);
+
+export const HelveticaRegularText = props => (
+  <Text {...props} style={[{fontFamily: "HelveticaRegular"}, props.style]} />
+);

@@ -1,22 +1,23 @@
 import React from "react";
-import {TextInput, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import {any, bool, func, shape, string} from "prop-types";
 import styles from "./InputField.styles";
+import Autocomplete from "../Autocomplete";
 
 export const InputField = ({
   input,
-  meta,
+  meta: {touched, active, error, valid},
+  index,
   ...inputProps
 }) => {
-  console.log("InputField error:", meta);
   let validationStyles;
-  // if (touched && !active) {
-  //   validationStyles = valid ? styles.valid : styles.invalid;
-  // }
+  if (touched && !active) {
+    validationStyles = !valid && styles.invalid;
+  }
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
-      <TextInput
+      <Autocomplete
         {...inputProps}
         onChangeText={input.onChange}
         onBlur={input.onBlur}
@@ -24,7 +25,7 @@ export const InputField = ({
         value={input.value}
         style={styles.input}
       />
-      {meta.touched && meta.error && <Text>{meta.error}</Text>}
+      {touched && error && <Text styles={styles.invalid}>{error}</Text>}
     </View>
   );
 };

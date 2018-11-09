@@ -22,10 +22,28 @@ export default class SuperSavingsScreen extends React.Component {
       <Fragment>
         <Menu />
         <ScrollView style={styles.container}>
+          <View style={styles.options}>
+            <View style={styles.optionsRow}>
+              <View>
+                <Text>Zip: {zip}</Text>
+              </View>
+              <Button
+                type="transparent"
+                iconSet="MaterialIcons"
+                buttonSize="medium"
+                middle="Change Location"
+                left="location-on"
+                preserveInputCase
+                color={colors.primary}
+                textStyle={styles.textStyle}
+              />
+            </View>
+          </View>
           <DrugForm
-            onSubmit={values =>
-              Alert.alert("Submitted!", JSON.stringify(values))
-            }
+            onSubmit={values => {
+              console.log(values);
+              Alert.alert("Submitdted!", JSON.stringify(values));
+            }}
           />
         </ScrollView>
       </Fragment>

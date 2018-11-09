@@ -16,7 +16,6 @@ export default StyleSheet.create({
     paddingLeft: 28,
     paddingRight: 21,
     borderBottomWidth: 1,
-    borderTopColor: colors.primary,
     borderBottomColor: colors.primary,
   },
   errorText: {

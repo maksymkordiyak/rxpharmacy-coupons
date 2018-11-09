@@ -1,5 +1,4 @@
 export const validate = values => {
-  console.log(values);
   const errors = {};
   if (!values.zipCode) {
     errors.zipCode = "Required";
@@ -11,7 +10,6 @@ export const validate = values => {
     values.drugsList.forEach((drug, drugIndex) => {
       const drugsErrors = {};
       if (!drug) {
-        console.log("DRUG", drug);
         drugsErrors[`drug_${drugIndex + 1}`] = "Required";
         drugsArrayErrors[drugIndex] = drugsErrors;
       }
@@ -20,7 +18,6 @@ export const validate = values => {
       }
     });
   }
-  console.log(errors);
 
   return errors;
 };

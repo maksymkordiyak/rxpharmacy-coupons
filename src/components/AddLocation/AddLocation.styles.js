@@ -13,8 +13,10 @@ export default StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     flexWrap: "nowrap",
-    height: 40.7,
-    paddingHorizontal: 11,
+    height: 40.8,
+    paddingHorizontal: 5.2,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.primary,
   },
   row: {
     display: "flex",
@@ -25,7 +27,7 @@ export default StyleSheet.create({
   },
   text: {
     lineHeight: 40,
-    paddingLeft: 18,
+    paddingLeft: 24,
   },
   primaryText: {
     color: colors.primary,

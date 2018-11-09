@@ -10,7 +10,6 @@ import styles from "./FieldModal.styles";
 export class FieldModal extends Component {
   render() {
     const {opened, onClose, onChange} = this.props;
-    console.log("MODAL", opened);
 
     return (
       <Modal

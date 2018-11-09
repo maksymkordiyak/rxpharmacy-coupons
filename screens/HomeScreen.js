@@ -10,11 +10,13 @@ import {
 } from "react-native";
 import {WebBrowser} from "expo";
 import {MonoText, SerifText, SerifBoldText} from "../components/StyledText";
+import {IconButton} from "../components/Button";
 
 export class LogoTitle extends React.Component {
   render() {
     return (
       <View style={styles.row}>
+        <IconButton onClick={() => console.log("123")} name="md-menu" />
         <Image
           source={require("../assets/images/header_logo.png")}
           style={styles.headerLogo}
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pharmacyHeaderText: {
-    fontSize: 30.2,
+    fontSize: 30,
     letterSpacing: -0.01,
     color: "#FFFFFF",
   },

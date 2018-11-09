@@ -10,3 +10,6 @@ export const SerifText = props => (
 export const SerifBoldText = props => (
   <Text {...props} style={[{fontFamily: "RokkittBold"}, props.style]} />
 );
+export const HelveticaMediumText = props => (
+  <Text {...props} style={[{fontFamily: "HelveticaMedium"}, props.style]} />
+);

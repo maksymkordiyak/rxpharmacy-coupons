@@ -2,14 +2,13 @@ import React, {Component} from "react";
 import {
   StyleSheet,
   SectionList,
-  Text,
   TextInput,
   TouchableOpacity,
   View,
 } from "react-native";
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter} from "../../utils/string";
-
+import {HelveticaMediumText} from "../StyledText";
 class Autocomplete extends Component {
   constructor(props) {
     super(props);
@@ -37,16 +36,22 @@ class Autocomplete extends Component {
           style={styles.suggestionList}
           renderItem={({item, index, section}) => (
             <TouchableOpacity style={styles.autocompleteItem}>
-              <Text style={styles.autocompleteItemText} key={index}>
+              <HelveticaMediumText
+                style={styles.autocompleteItemText}
+                key={index}
+              >
                 {capitalizeFirstLetter(item)}
-              </Text>
+              </HelveticaMediumText>
             </TouchableOpacity>
           )}
           renderSectionHeader={({section: {title}}) => (
             <View style={[styles.autocompleteItem, styles.autocompleteHeader]}>
-              <Text style={styles.autocompleteHeaderText} key={title}>
+              <HelveticaMediumText
+                style={styles.autocompleteHeaderText}
+                key={title}
+              >
                 {title.toUpperCase()}
-              </Text>
+              </HelveticaMediumText>
             </View>
           )}
           sections={[
@@ -81,7 +86,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     borderColor: colors.darkGreen,
-    fontFamily: "helvetica-medium",
+    fontFamily: "HelveticaMedium",
   },
   autocompleteItem: {
     paddingLeft: 15,
@@ -94,14 +99,12 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.dividerColor,
   },
   autocompleteItemText: {
-    fontFamily: "helvetica-medium",
     fontSize: 19,
   },
   autocompleteHeader: {
     height: 35.8,
   },
   autocompleteHeaderText: {
-    fontFamily: "helvetica-medium",
     fontSize: 17,
     color: colors.darkConcrete,
   },

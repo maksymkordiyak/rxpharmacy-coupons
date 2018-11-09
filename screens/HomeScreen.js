@@ -13,6 +13,7 @@ import {MonoText, SerifText, SerifBoldText} from "../components/StyledText";
 import {IconButton} from "../components/Button";
 
 import Autocomplete from "../components/Autocomplete";
+
 export class LogoTitle extends React.Component {
   render() {
     return (

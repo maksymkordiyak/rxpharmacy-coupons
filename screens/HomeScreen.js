@@ -64,24 +64,6 @@ const styles = StyleSheet.create({
     flexWrap: "nowrap",
     alignItems: "center",
   },
-  pharmacyHeaderText: {
-    fontSize: 30,
-    letterSpacing: -0.01,
-    color: "#FFFFFF",
-  },
-  headerLogo: {
-    width: 36,
-    height: 34.8,
-    resizeMode: "contain",
-    marginLeft: 5.8,
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: "rgba(0,0,0,0.4)",
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: "center",
-  },
   contentContainer: {
     paddingTop: 30,
   },
@@ -97,32 +79,8 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10,
   },
-  tabBarInfoContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: "black",
-        shadowOffset: {height: -3},
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
+  getStartedContainer: {
     alignItems: "center",
-    backgroundColor: "#fbfbfb",
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: "rgba(96,100,109, 1)",
-    textAlign: "center",
-  },
-  navigationFilename: {
-    marginTop: 5,
+    marginHorizontal: 50,
   },
 });

@@ -1,23 +1,22 @@
+import {has} from "underscore";
 export const validate = values => {
+  console.log("VALUES", values);
   const errors = {};
   if (!values.zipCode) {
     errors.zipCode = "Required";
   }
-  if (!values.drugsList || !values.drugsList.length) {
-    errors.drugsList = {_error: "At least one drug must be entered"};
-  } else {
-    const drugsArrayErrors = [];
-    values.drugsList.forEach((drug, drugIndex) => {
-      const drugsErrors = {};
-      if (!drug) {
-        drugsErrors[`drug_${drugIndex + 1}`] = "Required";
-        drugsArrayErrors[drugIndex] = drugsErrors;
-      }
-      if (drugsArrayErrors.length) {
-        errors.drugsList = drugsArrayErrors;
-      }
-    });
+  const drugsArrayErrors = [];
+  for (let i = 0; i < 10; i++) {
+    const drugsErrors = {};
+    if (has(values, `drug_${i}`) && !values[`drug_${i}`]) {
+      drugsErrors[`drug_${i}`] = "Required";
+      drugsArrayErrors[i] = drugsErrors;
+    }
+    if (drugsArrayErrors.length) {
+      errors.drugsList = drugsArrayErrors;
+    }
   }
+  console.log("ERRORS", errors);
 
   return errors;
 };

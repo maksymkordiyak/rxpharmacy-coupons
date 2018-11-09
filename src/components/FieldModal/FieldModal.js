@@ -43,7 +43,12 @@ export class FieldModal extends Component {
           <HelveticaRegularText style={[styles.text, styles.gutterBottom]}>
             pharmacy drug pricing in near you.
           </HelveticaRegularText>
-          <Autocomplete onChangeText={val => input.onChange(val)} />
+          <Autocomplete
+            onChange={input.onChange}
+            onBlur={input.onBlur}
+            onFocus={input.onFocus}
+            value={input.value}
+          />
           {error && <Text>{error}</Text>}
         </View>
       </Modal>

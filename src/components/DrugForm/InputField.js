@@ -1,5 +1,5 @@
 import React from "react";
-import {View} from "react-native";
+import {Text, View} from "react-native";
 import {any, bool, func, number, shape, string} from "prop-types";
 import styles from "./InputField.styles";
 import Autocomplete from "../Autocomplete";
@@ -18,10 +18,10 @@ export const InputField = ({
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
-      <HelveticaBoldText style={styles.index}>{count}</HelveticaBoldText>
+      <HelveticaBoldText style={styles.index}>{index}</HelveticaBoldText>
       <Autocomplete
         {...inputProps}
-        onChangeText={input.onChange}
+        onChange={input.onChange}
         onBlur={input.onBlur}
         onFocus={input.onFocus}
         value={input.value}

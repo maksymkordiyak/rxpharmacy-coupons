@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {SectionList, TextInput, TouchableOpacity, View} from "react-native";
+import {bool, func, string} from "prop-types";
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter, highlightString} from "../../utils/string";
 import {HelveticaMediumText} from "../StyledText";
@@ -15,10 +16,12 @@ class Autocomplete extends Component {
     this.state = {
       items: [],
       inputValue: "",
+      hideList: false,
     };
 
     this.timer = null;
 
+    this.setItem = this.setItem.bind(this);
     this.triggerChange = this.triggerChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.renderItem = this.renderItem.bind(this);
@@ -41,6 +44,11 @@ class Autocomplete extends Component {
     }
   }
 
+  setItem(value) {
+    this.props.onChange(capitalizeFirstLetter(value));
+    this.setState({inputValue: value, hideList: true});
+  }
+
   renderItem(item, index) {
     const {inputValue} = this.state;
     const {highlightText} = this.props;
@@ -57,7 +65,10 @@ class Autocomplete extends Component {
     }
 
     return (
-      <TouchableOpacity style={styles.listItem}>
+      <TouchableOpacity
+        style={styles.listItem}
+        onPress={() => this.setItem(item.name)}
+      >
         <HelveticaMediumText style={styles.listItemText} key={index}>
           {text}
         </HelveticaMediumText>
@@ -84,10 +95,10 @@ class Autocomplete extends Component {
   }
 
   render() {
-    const {inputValue, items} = this.state;
+    const {inputValue, hideList, items} = this.state;
     const {sectionName, placeholder, style} = this.props;
 
-    const displayListCheck = items.length > 0 && inputValue;
+    const displayListCheck = !hideList && (items.length > 0 && inputValue);
 
     return (
       <View style={styles.container}>
@@ -137,6 +148,13 @@ Autocomplete.defaultProps = {
   sectionName: "drugs",
   placeholder: "Add a Drug",
   highlightText: true,
+};
+
+Autocomplete.propTypes = {
+  onChange: func.isRequired,
+  sectionName: string,
+  placeholder: string,
+  highlightText: bool,
 };
 
 export default Autocomplete;

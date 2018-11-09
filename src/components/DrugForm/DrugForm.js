@@ -79,11 +79,11 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
   </Fragment>
 );
 
-export const MyForm = ({handleSubmit, submitting}) => (
+export const MyForm = ({handleSubmit, submitting, pristine}) => (
   <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
     <FieldArray name="drugsList" component={renderDrugsList} />
     <Button
-      disabled={submitting}
+      disabled={pristine || submitting}
       style={styles.submitBtn}
       onClick={handleSubmit}
       type="secondary"

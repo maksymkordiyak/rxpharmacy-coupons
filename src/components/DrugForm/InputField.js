@@ -17,6 +17,7 @@ export const InputField = ({
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
+      <Text styles={styles.index}>{index}</Text>
       <Autocomplete
         {...inputProps}
         onChangeText={input.onChange}

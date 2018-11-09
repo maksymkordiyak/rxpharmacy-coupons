@@ -22,5 +22,6 @@ export default StyleSheet.create({
   },
   index: {
     color: colors.tertiary,
+    fontSize: 20,
   },
 });

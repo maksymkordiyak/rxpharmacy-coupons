@@ -58,9 +58,10 @@ export class AddLocation extends Component {
           </View>
         </View>
         <FieldModal
+          input={input}
           opened={opened}
           onClose={this.toggleModal}
-          onChange={input.onChange}
+          error={error}
         />
       </View>
     );

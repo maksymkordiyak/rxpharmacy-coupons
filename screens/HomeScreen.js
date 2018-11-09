@@ -9,13 +9,50 @@ import {
   View,
 } from "react-native";
 import {WebBrowser} from "expo";
+import {MonoText, SerifText, SerifBoldText} from "../components/StyledText";
+import {IconButton} from "../components/Button";
 
-import {MonoText} from "../components/StyledText";
 import Autocomplete from "../components/Autocomplete";
+export class LogoTitle extends React.Component {
+  render() {
+    return (
+      <View style={styles.row}>
+        <IconButton onClick={() => console.log("123")} name="md-menu" />
+        <Image
+          source={require("../assets/images/header_logo.png")}
+          style={styles.headerLogo}
+        />
+        <SerifBoldText style={styles.pharmacyHeaderText}>
+          Pharmacy
+        </SerifBoldText>
+        <SerifText style={styles.pharmacyHeaderText}>Coupons</SerifText>
+      </View>
+    );
+  }
+}
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    headerTitle: <LogoTitle />,
+    headerStyle: {
+      backgroundColor: "#129a8d",
+    },
+    headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+    },
+  };
+
+  _handleLearnMorePress = () => {
+    WebBrowser.openBrowserAsync(
+      "https://docs.expo.io/versions/latest/guides/development-mode",
+    );
+  };
+
+  _handleHelpPress = () => {
+    WebBrowser.openBrowserAsync(
+      "https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes",
+    );
   };
 
   render() {
@@ -37,7 +74,7 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
+            <Text style={styles.getStartedText}>Get started by opening</Text>
 
             <View
               style={[styles.codeHighlightContainer, styles.homeScreenFilename]}
@@ -80,47 +117,28 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
-
-  _maybeRenderDevelopmentModeWarning() {
-    if (__DEV__) {
-      const learnMoreButton = (
-        <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-          Learn more
-        </Text>
-      );
-
-      return (
-        <Text style={styles.developmentModeText}>
-          Development mode is enabled, your app will be slower but you can use
-          useful development tools. {learnMoreButton}
-        </Text>
-      );
-    }
-
-    return (
-      <Text style={styles.developmentModeText}>
-        You are not in development mode, your app will run at full speed.
-      </Text>
-    );
-  }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync(
-      "https://docs.expo.io/versions/latest/guides/development-mode",
-    );
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      "https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes",
-    );
-  };
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+  row: {
+    flexDirection: "row",
+    flexWrap: "nowrap",
+    alignItems: "center",
+  },
+  pharmacyHeaderText: {
+    fontSize: 30,
+    letterSpacing: -0.01,
+    color: "#FFFFFF",
+  },
+  headerLogo: {
+    width: 36,
+    height: 34.8,
+    resizeMode: "contain",
+    marginLeft: 5.8,
   },
   developmentModeText: {
     marginBottom: 20,
@@ -144,6 +162,7 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10,
   },
+
   getStartedContainer: {
     alignItems: "center",
     marginHorizontal: 50,
@@ -152,7 +171,6 @@ const styles = StyleSheet.create({
     marginVertical: 7,
   },
   codeHighlightText: {
-    fontSize: 18,
     color: "rgba(96,100,109, 0.8)",
   },
   codeHighlightContainer: {

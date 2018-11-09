@@ -1,15 +1,10 @@
 import React, {Component} from "react";
-import {
-  StyleSheet,
-  SectionList,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import {SectionList, TextInput, TouchableOpacity, View} from "react-native";
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter} from "../../utils/string";
 import {HelveticaMediumText} from "../StyledText";
-import {Octicon} from "../Icon";
+import {Icon} from "../Icon";
+import {styles} from "./Autocomplete.styles";
 
 class Autocomplete extends Component {
   constructor(props) {
@@ -23,10 +18,12 @@ class Autocomplete extends Component {
 
   render() {
     const {inputValue} = this.state;
+    const {sectionName} = this.props;
 
     return (
-      <View>
-        <Octicon
+      <View style={styles.container}>
+        <Icon
+          iconSet="Octicons"
           size={20}
           style={styles.plus}
           name="plus"
@@ -40,31 +37,26 @@ class Autocomplete extends Component {
           value={inputValue}
           autoCorrect={false}
         />
+
         <SectionList
           style={styles.suggestionList}
           renderItem={({item, index, section}) => (
-            <TouchableOpacity style={styles.autocompleteItem}>
-              <HelveticaMediumText
-                style={styles.autocompleteItemText}
-                key={index}
-              >
+            <TouchableOpacity style={styles.listItem}>
+              <HelveticaMediumText style={styles.listItemText} key={index}>
                 {capitalizeFirstLetter(item)}
               </HelveticaMediumText>
             </TouchableOpacity>
           )}
           renderSectionHeader={({section: {title}}) => (
-            <View style={[styles.autocompleteItem, styles.autocompleteHeader]}>
-              <HelveticaMediumText
-                style={styles.autocompleteHeaderText}
-                key={title}
-              >
+            <View style={[styles.listItem, styles.listHeader]}>
+              <HelveticaMediumText style={styles.listHeaderText} key={title}>
                 {title.toUpperCase()}
               </HelveticaMediumText>
             </View>
           )}
           sections={[
             {
-              title: "Drugs",
+              title: sectionName,
               data: [
                 "lipichol 540",
                 "lipidshield plus",
@@ -74,53 +66,17 @@ class Autocomplete extends Component {
             },
           ]}
           keyExtractor={(item, index) => item + index}
+          ListFooterComponent={
+            <View style={[styles.listItem, styles.listFooter]} />
+          }
         />
       </View>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  plus: {
-    position: "absolute",
-    left: 16.6,
-    top: 9,
-  },
-  suggestionList: {
-    position: "relative",
-    top: -6,
-  },
-  input: {
-    fontSize: 20,
-    textDecorationLine: "none",
-    paddingLeft: 40,
-    height: 42,
-    width: 358,
-    borderWidth: 1,
-    borderRadius: 8,
-    borderColor: colors.darkGreen,
-    fontFamily: "HelveticaMedium",
-  },
-  autocompleteItem: {
-    paddingLeft: 15,
-    paddingTop: 3,
-    height: 41,
-    borderTopWidth: 0,
-    borderWidth: 1,
-    borderLeftColor: colors.darkGreen,
-    borderRightColor: colors.darkGreen,
-    borderBottomColor: colors.dividerColor,
-  },
-  autocompleteItemText: {
-    fontSize: 19,
-  },
-  autocompleteHeader: {
-    height: 35.8,
-  },
-  autocompleteHeaderText: {
-    fontSize: 17,
-    color: colors.darkConcrete,
-  },
-});
+Autocomplete.defaultProps = {
+  sectionName: "Drugs",
+};
 
 export default Autocomplete;

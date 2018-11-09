@@ -1,41 +1,9 @@
 import React from "react";
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import {Image, Platform, ScrollView, StyleSheet, View} from "react-native";
 import {WebBrowser} from "expo";
-import {Octicons} from "@expo/vector-icons";
-import {MonoText, SerifText, SerifBoldText} from "../components/StyledText";
-import {Button, IconButton} from "../components/Button";
+import {Button} from "../components/Button";
+import {LogoTitle} from "../components/Headers";
 import Autocomplete from "../components/Autocomplete";
-
-export class LogoTitle extends React.Component {
-  render() {
-    return (
-      <View style={styles.row}>
-        <IconButton
-          onClick={() => console.log("123")}
-          name="three-bars"
-          size={32}
-          iconSet="Octicons"
-        />
-        <Image
-          source={require("../assets/images/header_logo.png")}
-          style={styles.headerLogo}
-        />
-        <SerifBoldText style={styles.pharmacyHeaderText}>
-          Pharmacy
-        </SerifBoldText>
-        <SerifText style={styles.pharmacyHeaderText}>Coupons</SerifText>
-      </View>
-    );
-  }
-}
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -47,12 +15,6 @@ export default class HomeScreen extends React.Component {
     headerTitleStyle: {
       fontWeight: "bold",
     },
-  };
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync(
-      "https://docs.expo.io/versions/latest/guides/development-mode",
-    );
   };
 
   _handleHelpPress = () => {
@@ -78,42 +40,15 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
-
           <View style={styles.getStartedContainer}>
             <Button
               type="secondary"
               left="md-share"
               middle="Test"
-              size={15.6}
               iconSet="Ionicons"
             />
           </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity
-              onPress={this._handleHelpPress}
-              style={styles.helpLink}
-            >
-              <Text style={styles.helpLinkText}>
-                Help, it didn’t automatically reload!
-              </Text>
-            </TouchableOpacity>
-          </View>
         </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>
-            This is a tab bar. You can edit it in:
-          </Text>
-
-          <View
-            style={[styles.codeHighlightContainer, styles.navigationFilename]}
-          >
-            <MonoText style={styles.codeHighlightText}>
-              navigation/MainTabNavigator.js
-            </MonoText>
-          </View>
-        </View>
       </View>
     );
   }
@@ -162,28 +97,6 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10,
   },
-
-  getStartedContainer: {
-    alignItems: "center",
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: "rgba(96,100,109, 0.8)",
-  },
-  codeHighlightContainer: {
-    backgroundColor: "rgba(0,0,0,0.05)",
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: "rgba(96,100,109, 1)",
-    lineHeight: 24,
-    textAlign: "center",
-  },
   tabBarInfoContainer: {
     position: "absolute",
     bottom: 0,
@@ -211,16 +124,5 @@ const styles = StyleSheet.create({
   },
   navigationFilename: {
     marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: "center",
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: "#2e78b7",
   },
 });

@@ -20,6 +20,7 @@ export const Button = ({
   return (
     <TouchableOpacity
       onPress={onClick}
+      activeOpacity={0.7}
       style={[
         {
           backgroundColor: BUTTON_TYPES[type] || "secondary",
@@ -64,7 +65,11 @@ Button.defaultProps = {
 };
 
 export const IconButton = ({onClick, style, name, color, size, iconSet}) => (
-  <TouchableOpacity style={[styles.iconContainer, style]} onPress={onClick}>
+  <TouchableOpacity
+    style={[styles.iconContainer, style]}
+    onPress={onClick}
+    activeOpacity={0.7}
+  >
     <Icon size={size} name={name} color={color} iconSet={iconSet} />
   </TouchableOpacity>
 );

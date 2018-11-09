@@ -1,60 +1,60 @@
 import React from "react";
-import {Platform} from "react-native";
 import {createStackNavigator, createBottomTabNavigator} from "react-navigation";
-
-import TabBarIcon from "../components/TabBarIcon";
+import {colors} from "../constants/Colors";
+import {TabBarIcon} from "../components/TabBarIcon";
 import HomeScreen from "../screens/HomeScreen";
-import LinksScreen from "../screens/LinksScreen";
-import SettingsScreen from "../screens/SettingsScreen";
+import SuperSavingsScreen from "../screens/SuperSavingsScreen";
+
+const tabBarOptions = {
+  activeBackgroundColor: colors.primary,
+  inactiveBackgroundColor: colors.tintColor,
+  activeTintColor: colors.whiteColor,
+  inactiveTintColor: colors.primary,
+  showLabel: false,
+  style: {
+    height: 67.6,
+  },
+};
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: "Home",
   tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-information-circle${focused ? "" : "-outline"}`
-          : "md-information-circle"
+      image={
+        focused
+          ? require("../assets/images/tab1_active.png")
+          : require("../assets/images/tab1_inactive.png")
       }
+      text="INSTANT SAVINGS OPTION"
     />
   ),
+  tabBarOptions,
 };
 
 const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+  Links: SuperSavingsScreen,
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: "Links",
   tabBarIcon: ({focused}) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === "ios" ? "ios-link" : "md-link"}
+      image={
+        focused
+          ? require("../assets/images/tab2_active.png")
+          : require("../assets/images/tab2_inactive.png")
+      }
+      text="SUPER SAVINGS OPTION"
     />
   ),
-};
-
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: "Settings",
-  tabBarIcon: ({focused}) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-options" : "md-options"}
-    />
-  ),
+  tabBarOptions,
 };
 
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
 });

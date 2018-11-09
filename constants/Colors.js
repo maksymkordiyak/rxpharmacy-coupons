@@ -1,4 +1,4 @@
-const tintColor = "#2f95dc";
+const tintColor = "#f0f8f9";
 const redColor = "#dc4f2c";
 const whiteColor = "#ffffff";
 const greenColor = "#64a143";
@@ -13,6 +13,8 @@ export const colors = {
   darkGreenColor,
   blueColor,
   primary: darkGreenColor,
+  textPrimary: whiteColor,
+  textInvert: darkGreenColor,
   secondary: greenColor,
   tertiary: blueColor,
   warn: "yellow",

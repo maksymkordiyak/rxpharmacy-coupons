@@ -1,7 +1,7 @@
 import React from "react";
 import {Image, StyleSheet, View} from "react-native";
 import {IconButton} from "../Button";
-import {SerifBoldText, SerifText} from "../StyledText";
+import {HelveticaMediumText, SerifText, SerifBoldText} from "../StyledText";
 
 export const LogoTitle = () => (
   <View style={styles.row}>
@@ -20,6 +20,20 @@ export const LogoTitle = () => (
   </View>
 );
 
+export const BasicHeader = ({text}) => (
+  <View style={styles.row}>
+    <IconButton
+      onClick={() => console.log("123")}
+      name="three-bars"
+      size={32}
+      iconSet="Octicons"
+    />
+    <HelveticaMediumText style={styles.basicHeaderText}>
+      {text}
+    </HelveticaMediumText>
+  </View>
+);
+
 const styles = StyleSheet.create({
   row: {
     flexDirection: "row",
@@ -29,6 +43,11 @@ const styles = StyleSheet.create({
   pharmacyHeaderText: {
     fontSize: 30,
     letterSpacing: -0.01,
+    color: "#FFFFFF",
+  },
+  basicHeaderText: {
+    fontSize: 22,
+    letterSpacing: -0.65,
     color: "#FFFFFF",
   },
   headerLogo: {

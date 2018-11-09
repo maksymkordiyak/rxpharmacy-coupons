@@ -1,11 +1,11 @@
 import React from "react";
 import {ScrollView, StyleSheet} from "react-native";
 import {ExpoLinksView} from "@expo/samples";
-import {LogoTitle} from "../components/Headers";
+import {BasicHeader} from "../components/Headers";
 
 export default class SuperSavingsScreen extends React.Component {
   static navigationOptions = {
-    headerTitle: <LogoTitle />,
+    headerTitle: <BasicHeader text="Prescription List" />,
     headerStyle: {
       backgroundColor: "#129a8d",
     },

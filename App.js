@@ -34,7 +34,7 @@ export default class App extends React.Component {
         require("./assets/images/robot-prod.png"),
       ]),
       Font.loadAsync({
-        arial: require("./assets/fonts/arial.ttf"),
+        "arial": require("./assets/fonts/arial.ttf"),
         "arial-bold": require("./assets/fonts/arialbd.ttf"),
         "helvetica-bold": require("./assets/fonts/HelveticaNeueLTStd-Bd_0.otf"),
         "helvetica-light": require("./assets/fonts/HelveticaNeueLTStd-LtIt.otf"),

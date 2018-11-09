@@ -25,7 +25,7 @@ class Autocomplete extends Component {
     const {inputValue} = this.state;
 
     return (
-      <View>
+      <View style={styles.container}>
         <Octicon
           size={20}
           style={styles.plus}
@@ -35,29 +35,24 @@ class Autocomplete extends Component {
         <TextInput
           style={styles.input}
           onChangeText={text => this.setState({inputValue: text})}
-          placeholder="Add a Drug"
+          placeholder="Add a Drzugs"
           placeholderTextColor={colors.concrete}
           value={inputValue}
           autoCorrect={false}
         />
+
         <SectionList
           style={styles.suggestionList}
           renderItem={({item, index, section}) => (
-            <TouchableOpacity style={styles.autocompleteItem}>
-              <HelveticaMediumText
-                style={styles.autocompleteItemText}
-                key={index}
-              >
+            <TouchableOpacity style={styles.listItem}>
+              <HelveticaMediumText style={styles.listItemText} key={index}>
                 {capitalizeFirstLetter(item)}
               </HelveticaMediumText>
             </TouchableOpacity>
           )}
           renderSectionHeader={({section: {title}}) => (
-            <View style={[styles.autocompleteItem, styles.autocompleteHeader]}>
-              <HelveticaMediumText
-                style={styles.autocompleteHeaderText}
-                key={title}
-              >
+            <View style={[styles.listItem, styles.listHeader]}>
+              <HelveticaMediumText style={styles.listHeaderText} key={title}>
                 {title.toUpperCase()}
               </HelveticaMediumText>
             </View>
@@ -74,6 +69,9 @@ class Autocomplete extends Component {
             },
           ]}
           keyExtractor={(item, index) => item + index}
+          ListFooterComponent={
+            <View style={[styles.listItem, styles.listFooter]} />
+          }
         />
       </View>
     );
@@ -81,14 +79,24 @@ class Autocomplete extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+  },
   plus: {
     position: "absolute",
     left: 16.6,
     top: 9,
   },
   suggestionList: {
-    position: "relative",
-    top: -6,
+    width: 358,
+    backgroundColor: "white",
+    paddingTop: 6,
+    marginTop: -6,
+  },
+  listFooter: {
+    height: 16.7,
+    borderBottomColor: colors.darkGreen,
   },
   input: {
     fontSize: 20,
@@ -101,7 +109,7 @@ const styles = StyleSheet.create({
     borderColor: colors.darkGreen,
     fontFamily: "HelveticaMedium",
   },
-  autocompleteItem: {
+  listItem: {
     paddingLeft: 15,
     paddingTop: 3,
     height: 41,
@@ -111,13 +119,15 @@ const styles = StyleSheet.create({
     borderRightColor: colors.darkGreen,
     borderBottomColor: colors.dividerColor,
   },
-  autocompleteItemText: {
+  listItemText: {
     fontSize: 19,
   },
-  autocompleteHeader: {
+  listHeader: {
+    borderTopWidth: 1,
+    borderTopColor: colors.darkGreen,
     height: 35.8,
   },
-  autocompleteHeaderText: {
+  listHeaderText: {
     fontSize: 17,
     color: colors.darkConcrete,
   },

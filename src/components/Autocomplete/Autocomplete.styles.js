@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
+    maxWidth: "100%",
   },
   plus: {
     position: "absolute",
@@ -36,11 +37,12 @@ export const styles = StyleSheet.create({
     textDecorationLine: "none",
     paddingLeft: 40,
     height: 42,
-    maxWidth: 358,
+    maxWidth: "100%",
     borderWidth: 1,
     borderRadius: 6,
     borderColor: colors.primary,
     fontFamily: "HelveticaMedium",
+    flexGrow: 2,
   },
   listItem: {
     paddingLeft: 15,

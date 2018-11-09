@@ -1,8 +1,9 @@
 import React from "react";
-import {Text, View} from "react-native";
-import {any, bool, func, shape, string} from "prop-types";
+import {View} from "react-native";
+import {any, bool, func, number, shape, string} from "prop-types";
 import styles from "./InputField.styles";
 import Autocomplete from "../Autocomplete";
+import {HelveticaBoldText} from "../StyledText";
 
 export const InputField = ({
   input,
@@ -14,10 +15,11 @@ export const InputField = ({
   if (touched && !active) {
     validationStyles = !valid && styles.invalid;
   }
+  const count = index + 1;
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
-      <Text styles={styles.index}>{index}</Text>
+      <HelveticaBoldText style={styles.index}>{count}</HelveticaBoldText>
       <Autocomplete
         {...inputProps}
         onChangeText={input.onChange}
@@ -45,4 +47,5 @@ InputField.propTypes = {
     pristine: bool.isRequired,
     visited: bool.isRequired,
   }).isRequired,
+  index: number,
 };

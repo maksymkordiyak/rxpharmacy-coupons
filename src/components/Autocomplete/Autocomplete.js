@@ -85,7 +85,7 @@ class Autocomplete extends Component {
 
   render() {
     const {inputValue, items} = this.state;
-    const {sectionName, placeholder} = this.props;
+    const {sectionName, placeholder, style} = this.props;
 
     const displayListCheck = items.length > 0 && inputValue;
 
@@ -99,7 +99,7 @@ class Autocomplete extends Component {
           color={colors.concrete}
         />
         <TextInput
-          style={styles.input}
+          style={[styles.input, style]}
           placeholder={placeholder}
           placeholderTextColor={colors.concrete}
           value={inputValue}

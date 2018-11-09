@@ -24,9 +24,9 @@ export class FieldModal extends Component {
             <Button
               style={styles.closeBtn}
               type="transparent"
-              iconSet="Ionicons"
+              iconSet="FontAwesome"
               middle="CLOSE"
-              right="md-close"
+              right="close"
               color={colors.primary}
               textStyle={styles.closeBtnText}
               onClick={() => onClose()}

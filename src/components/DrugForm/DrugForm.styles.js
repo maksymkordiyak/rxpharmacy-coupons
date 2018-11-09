@@ -25,7 +25,7 @@ export default StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
     fontSize: 15,
-    marginTop: 25,
+    marginVertical: 25,
     padding: 5,
   },
   quantityButtons: {

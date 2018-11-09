@@ -2,6 +2,7 @@ import React from "react";
 import {Text, TouchableOpacity} from "react-native";
 import {bool, func, object, oneOf, number, string} from "prop-types";
 import {styles, BUTTON_TYPES, BUTTON_SIZES} from "./Button.styles";
+import {colors} from "../../constants/Colors";
 import {Icon, ICON_SETS} from "../Icon/index";
 
 export const Button = ({
@@ -25,7 +26,9 @@ export const Button = ({
       activeOpacity={0.7}
       style={[
         {
-          backgroundColor: BUTTON_TYPES[type] || "secondary",
+          backgroundColor: disabled
+            ? colors.dividerColor
+            : BUTTON_TYPES[type] || colors.secondary,
           minHeight: BUTTON_SIZES[buttonSize] || 34.1,
         },
         styles.buttonContainer,

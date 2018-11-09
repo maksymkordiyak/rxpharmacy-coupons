@@ -15,7 +15,6 @@ import {
 export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
   <Fragment>
     <Field name="zipCode" component={AddLocation} />
-
     <View style={styles.optionsRow}>
       <View>
         <HelveticaMediumText style={styles.prescriptions}>
@@ -28,6 +27,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
       <View style={styles.quantityButtons}>
         <View>
           <Button
+            disabled={fields.length < 1}
             type="secondary"
             left="md-remove"
             size={20}
@@ -37,11 +37,12 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
         </View>
         <View style={styles.addButton}>
           <Button
+            disabled={fields.length >= 9}
             type="secondary"
             left="md-add"
             size={20}
             iconSet="Ionicons"
-            onClick={() => fields.push({})}
+            onClick={() => fields.length < 9 && fields.push({})}
           />
         </View>
       </View>
@@ -53,7 +54,12 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
       </HelveticaRegularText>
     </View>
     <View key="drug_0">
-      <Field name="drug_0" component={InputField} placeholder="Add a drug" />
+      <Field
+        name="drug_0"
+        component={InputField}
+        placeholder="Add a drug"
+        index={0}
+      />
     </View>
     {submitFailed && error && <Text style={styles.errorText}>{error}</Text>}
     {fields.map((drug, index) => {

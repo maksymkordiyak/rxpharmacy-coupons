@@ -20,7 +20,7 @@ export default StyleSheet.create({
   closeBtn: {
     alignSelf: "flex-end",
     paddingRight: 14,
-      fontWeight: "bold",
+    fontWeight: "bold",
   },
   closeBtnText: {
     color: colors.primary,

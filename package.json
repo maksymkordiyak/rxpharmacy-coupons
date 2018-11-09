@@ -18,9 +18,11 @@
     "eslint-config-with-prettier": "^4.2.0",
     "expo": "^31.0.2",
     "prop-types": "^15.6.2",
+    "query-string": "^6.2.0",
     "react": "16.5.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
-    "react-navigation": "^2.18.2"
+    "react-navigation": "^2.18.2",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

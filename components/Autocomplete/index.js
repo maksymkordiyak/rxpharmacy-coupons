@@ -31,7 +31,7 @@ class Autocomplete extends Component {
         <TextInput
           style={styles.input}
           onChangeText={text => this.setState({inputValue: text})}
-          placeholder="Add a Drugs"
+          placeholder="Add a Drug"
           placeholderTextColor={colors.concrete}
           value={inputValue}
           autoCorrect={false}

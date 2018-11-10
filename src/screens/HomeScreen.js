@@ -1,22 +1,10 @@
 import React from "react";
-import {Image, Platform, ScrollView, StyleSheet, View} from "react-native";
+import {Image, ScrollView, StyleSheet, View} from "react-native";
 import {WebBrowser} from "expo";
 import {Button} from "../components/Button/index";
-import {LogoTitle} from "../components/Headers/index";
 import Autocomplete from "../components/Autocomplete/index";
 
 export default class HomeScreen extends React.Component {
-  static navigationOptions = {
-    headerTitle: <LogoTitle />,
-    headerStyle: {
-      backgroundColor: "#129a8d",
-    },
-    headerTintColor: "#fff",
-    headerTitleStyle: {
-      fontWeight: "bold",
-    },
-  };
-
   _handleHelpPress = () => {
     WebBrowser.openBrowserAsync(
       "https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes",

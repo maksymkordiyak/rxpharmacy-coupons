@@ -4,6 +4,7 @@ import {colors} from "../constants/Colors";
 import {TabBarIcon} from "../components/TabBarIcon/index";
 import HomeScreen from "../screens/HomeScreen";
 import SuperSavingsScreen from "../screens/SuperSavingsScreen";
+import {BasicHeader, LogoTitle} from "../components/Headers";
 
 const tabBarOptions = {
   activeBackgroundColor: colors.primary,
@@ -16,9 +17,24 @@ const tabBarOptions = {
   },
 };
 
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-});
+const HomeStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+  },
+  {
+    /* The header config from HomeScreen is now here */
+    navigationOptions: {
+      headerTitle: <LogoTitle />,
+      headerStyle: {
+        backgroundColor: "#129a8d",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    },
+  },
+);
 
 HomeStack.navigationOptions = {
   tabBarIcon: ({focused}) => (
@@ -35,9 +51,23 @@ HomeStack.navigationOptions = {
   tabBarOptions,
 };
 
-const LinksStack = createStackNavigator({
-  Links: SuperSavingsScreen,
-});
+const LinksStack = createStackNavigator(
+  {
+    Links: SuperSavingsScreen,
+  },
+  {
+    navigationOptions: {
+      headerTitle: <BasicHeader text="Prescription List" />,
+      headerStyle: {
+        backgroundColor: "#129a8d",
+      },
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    },
+  },
+);
 
 LinksStack.navigationOptions = {
   tabBarIcon: ({focused}) => (

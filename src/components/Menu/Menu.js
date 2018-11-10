@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import {bool, func} from "prop-types";
 import {colors} from "../../constants/Colors";
-import {MENU_HEIGHT} from "../../constants/Layout";
+import {MENU_ANIMATION} from "../../constants/Layout";
 import {IconButton} from "../Button";
 import {TabBarContent} from "../TabBarIcon/index";
 import {isIos, isX} from "../../utils/common";
@@ -17,27 +17,29 @@ import {HelveticaMediumText} from "../StyledText";
 
 export class Menu extends Component {
   componentWillMount() {
-    const {collapsed} = this.props;
+    const {opened} = this.props;
     this.animatedHeight = new Animated.Value(0);
     this.animatedOpacity = new Animated.Value(0);
-    if (collapsed) {
+    this.isOpened = false;
+    if (opened) {
+      this.isOpened = opened;
       this._onToggle();
     }
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.collapsed !== prevProps.collapsed) {
+    if (this.props.opened !== prevProps.opened) {
       this._onToggle();
     }
   }
 
   _onToggle = () => {
-    const {collapsed} = this.props;
-    const initialHeight = collapsed ? 0 : MENU_HEIGHT;
-    const finalHeight = collapsed ? MENU_HEIGHT : 0;
+    const {opened} = this.props;
+    const initialHeight = opened ? -MENU_ANIMATION : 0;
+    const finalHeight = opened ? 0 : -MENU_ANIMATION;
     this.animatedHeight.setValue(initialHeight);
-    const initialOpacity = collapsed ? 0 : 1;
-    const finalOpacity = collapsed ? 1 : 0;
+    const initialOpacity = opened ? 0 : 1;
+    const finalOpacity = opened ? 1 : 0;
     this.animatedOpacity.setValue(initialOpacity);
     Animated.timing(this.animatedHeight, {
       toValue: finalHeight,
@@ -52,24 +54,26 @@ export class Menu extends Component {
   };
 
   render() {
-    const {hideMenu, collapsed} = this.props;
+    const {hideMenu, opened} = this.props;
+    // if (!opened) {
+    //   setTimeout(() => {
+    //     this.isOpened = opened;
+    //   }, 300);
+    // }
     const animatedStyle = {
-      maxHeight: this.animatedHeight,
-      // transform: [
-      //   {translateY: this.animatedHeight } // this would be the result of the animation code below and is just a number.
-      // ],
-      height: this.animatedHeight,
+      transform: [{translateY: this.animatedHeight}],
       paddingTop: (isIos && ((isX && 40) || 20)) || 0,
       opacity: this.animatedOpacity,
     };
 
     return (
       <Modal
-        animationType="none"
+        animationType="fade"
         transparent
-        visible={collapsed}
+        visible={opened}
         onRequestClose={() => hideMenu()}
       >
+        <View style={styles.overlay} />
         <Animated.View style={[styles.container, animatedStyle]}>
           <View style={styles.header}>
             <IconButton
@@ -122,14 +126,23 @@ export class Menu extends Component {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    maxHeight: 0,
-    height: 0,
     overflow: "hidden",
     top: 0,
     left: 0,
     borderBottomColor: colors.primary,
     borderBottomWidth: 3,
     backgroundColor: colors.primary,
+  },
+  overlay: {
+    backgroundColor: colors.bgPrimary,
+    opacity: 0.6,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0,
+    width: "100%",
+    flex: 1,
   },
   header: {
     marginTop: 3.8,
@@ -166,7 +179,7 @@ const styles = StyleSheet.create({
 });
 
 Menu.propTypes = {
-  collapsed: bool.isRequired,
+  opened: bool.isRequired,
   hideMenu: func.isRequired,
 };
 

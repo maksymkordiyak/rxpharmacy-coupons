@@ -3,7 +3,7 @@ import {hideMenu} from "../../actions/menu";
 import Menu from "./Menu";
 
 const mapStateToProps = state => ({
-  collapsed: state.menu.showMenu,
+  opened: state.menu.showMenu,
 });
 
 const mapDispatchToProps = {

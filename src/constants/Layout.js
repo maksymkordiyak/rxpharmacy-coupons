@@ -1,1 +1,1 @@
-export const MENU_HEIGHT = 300;
+export const MENU_ANIMATION = 100;

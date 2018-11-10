@@ -19,15 +19,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
+    justifyContent: "center",
     minHeight: 67.6,
+    width: "100%",
   },
   tabTextActive: {
     color: colors.textPrimary,
-    maxWidth: "60%",
+    maxWidth: "70%",
   },
   tabTextInactive: {
     color: colors.textInvert,
-    maxWidth: "60%",
+    maxWidth: "70%",
   },
   tabImage: {
     width: 30,

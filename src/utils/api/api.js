@@ -1,4 +1,4 @@
-export const baseUrl = "";//"https://staging-una-engine.herokuapp.com";
+export const baseUrl = ""; // "https://staging-una-engine.herokuapp.com";
 import queryString from "query-string";
 import _ from "underscore";
 
@@ -39,6 +39,29 @@ export const get = async (url, params = {}) => {
   const response = await fetch(`${baseUrl}${url}${qs(params)}`, {
     ...opts,
     method: "GET",
+  }).catch(fetchError);
+
+  return processResponse(response);
+};
+
+export const post = async (url, body = {}) => {
+  const fetchOpts = {
+    ...opts,
+    method: "POST",
+    body: JSON.stringify(body),
+  };
+  const response = await fetch(`${baseUrl}${url}`, fetchOpts).catch(err => {
+    fetchError(err);
+  });
+
+  return processResponse(response);
+};
+
+export const put = async (url, body = {}) => {
+  const response = await fetch(`${baseUrl}${url}`, {
+    ...opts,
+    method: "PUT",
+    body: JSON.stringify(body),
   }).catch(fetchError);
 
   return processResponse(response);

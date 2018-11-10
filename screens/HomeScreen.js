@@ -1,5 +1,5 @@
 import React from "react";
-import {Image, Platform, ScrollView, StyleSheet, View} from "react-native";
+import {Image, ScrollView, StyleSheet, View} from "react-native";
 import {WebBrowser} from "expo";
 import {Button} from "../components/Button";
 import {LogoTitle} from "../components/Headers";
@@ -39,6 +39,9 @@ export default class HomeScreen extends React.Component {
               }
               style={styles.welcomeImage}
             />
+          </View>
+          <View style={{paddingLeft: 10}}>
+            <Autocomplete />
           </View>
           <View style={styles.getStartedContainer}>
             <Button

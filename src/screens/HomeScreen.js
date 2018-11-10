@@ -28,6 +28,9 @@ export default class HomeScreen extends React.Component {
               style={styles.welcomeImage}
             />
           </View>
+          <View style={{paddingLeft: 10}}>
+            <Autocomplete />
+          </View>
           <View style={styles.getStartedContainer}>
             <Button
               type="secondary"

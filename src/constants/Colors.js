@@ -30,4 +30,5 @@ export const colors = {
   concrete: "#acada9",
   dividerColor: "#c7c6c1",
   darkConcrete: "#91928e",
+  muddyGray: "#585a58",
 };

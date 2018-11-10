@@ -1,8 +1,8 @@
 module.exports = {
   extends: ["react-app", "airbnb", "eslint-config-with-prettier"],
   env: {
-    browser: true,
-    jest: true,
+    browser: false,
+    jest: false,
     es6: true,
     node: true,
   },

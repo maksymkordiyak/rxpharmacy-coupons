@@ -5,6 +5,7 @@ export const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
+    marginBottom: 15,
   },
   plus: {
     position: "absolute",

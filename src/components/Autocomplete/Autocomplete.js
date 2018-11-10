@@ -1,11 +1,5 @@
 import React, {Component} from "react";
-import {
-  SectionList,
-  TextInput,
-  TouchableOpacity,
-  View,
-  Text,
-} from "react-native";
+import {SectionList, TextInput, TouchableOpacity, View} from "react-native";
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter, highlightString} from "../../utils/string";
 import {HelveticaMediumText} from "../StyledText";

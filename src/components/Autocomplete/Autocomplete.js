@@ -1,5 +1,11 @@
 import React, {Component} from "react";
-import {SectionList, TextInput, TouchableOpacity, View} from "react-native";
+import {
+  SectionList,
+  TextInput,
+  TouchableOpacity,
+  View,
+  Text,
+} from "react-native";
 import {colors} from "../../constants/Colors";
 import {capitalizeFirstLetter, highlightString} from "../../utils/string";
 import {HelveticaMediumText} from "../StyledText";
@@ -43,14 +49,17 @@ class Autocomplete extends Component {
 
   renderItem(item, index) {
     const {inputValue} = this.state;
-    const capitalizedItemText = capitalizeFirstLetter(item);
 
-    const splittedItemText = capitalizedItemText.replace(inputValue);
+    const highlightedText = highlightString(
+      capitalizeFirstLetter(item),
+      inputValue,
+      colors.darkGreenColor,
+    );
 
     return (
       <TouchableOpacity style={styles.listItem}>
         <HelveticaMediumText style={styles.listItemText} key={index}>
-          {capitalizedItemText}
+          {highlightedText}
         </HelveticaMediumText>
       </TouchableOpacity>
     );
@@ -119,7 +128,7 @@ class Autocomplete extends Component {
 }
 
 Autocomplete.defaultProps = {
-  sectionName: "Drugs",
+  sectionName: "drugs",
   placeholder: "Add a Drug",
 };
 

@@ -49,6 +49,7 @@ export const styles = StyleSheet.create({
   },
   listItemText: {
     fontSize: 19,
+    color: colors.muddyGray,
   },
   listHeader: {
     height: 35.8,

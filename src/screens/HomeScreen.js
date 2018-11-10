@@ -3,7 +3,7 @@ import {Image, ScrollView, StyleSheet, View} from "react-native";
 import {WebBrowser} from "expo";
 import {Button} from "../components/Button/index";
 import {LogoTitle} from "../components/Headers/index";
-import Autocomplete from "../components/Autocomplete/index";
+import Autocomplete from "../components/Autocomplete";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {

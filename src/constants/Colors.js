@@ -13,6 +13,7 @@ export const colors = {
   darkGreenColor,
   blueColor,
   primary: darkGreenColor,
+  bgPrimary: whiteColor,
   textPrimary: whiteColor,
   textInvert: darkGreenColor,
   secondary: greenColor,

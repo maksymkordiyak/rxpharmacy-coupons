@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
     paddingRight: 18,
   },
   btnText: {
-    color: colors.whiteColor,
+    color: colors.textPrimary,
     fontSize: 15,
     marginLeft: 6,
     marginRight: 6,

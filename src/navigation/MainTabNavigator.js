@@ -4,12 +4,13 @@ import {colors} from "../constants/Colors";
 import {TabBarIcon} from "../components/TabBarIcon/index";
 import HomeScreen from "../screens/HomeScreen";
 import SuperSavingsScreen from "../screens/SuperSavingsScreen";
-import {BasicHeader, LogoTitle} from "../components/Headers";
+import LogoTitle from "../components/Headers/LogoTitle";
+import BasicHeader from "../components/Headers/BasicHeader";
 
 const tabBarOptions = {
   activeBackgroundColor: colors.primary,
   inactiveBackgroundColor: colors.tintColor,
-  activeTintColor: colors.whiteColor,
+  activeTintColor: colors.bgPrimary,
   inactiveTintColor: colors.primary,
   showLabel: false,
   style: {
@@ -22,13 +23,13 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
   },
   {
-    /* The header config from HomeScreen is now here */
     navigationOptions: {
       headerTitle: <LogoTitle />,
       headerStyle: {
-        backgroundColor: "#129a8d",
+        backgroundColor: colors.primary,
+        zIndex: 2,
       },
-      headerTintColor: "#fff",
+      headerTintColor: colors.textPrimary,
       headerTitleStyle: {
         fontWeight: "bold",
       },
@@ -59,9 +60,10 @@ const LinksStack = createStackNavigator(
     navigationOptions: {
       headerTitle: <BasicHeader text="Prescription List" />,
       headerStyle: {
-        backgroundColor: "#129a8d",
+        backgroundColor: colors.primary,
+        zIndex: 2,
       },
-      headerTintColor: "#fff",
+      headerTintColor: colors.textPrimary,
       headerTitleStyle: {
         fontWeight: "bold",
       },

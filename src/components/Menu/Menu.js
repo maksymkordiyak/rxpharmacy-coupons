@@ -3,16 +3,24 @@ import {
   Animated,
   Easing,
   FlatList,
+  Linking,
   Modal,
   StyleSheet,
+  TouchableHighlight,
+  Text,
   View,
 } from "react-native";
 import {bool, func} from "prop-types";
 import {colors} from "../../constants/Colors";
-import {MENU_ANIMATION} from "../../constants/Layout";
+import {
+  MENU_ANIMATION,
+  MENU_ANIMATION_DURATION,
+  PADDING_TOP,
+} from "../../constants/Layout";
 import {IconButton} from "../Button";
 import {TabBarContent} from "../TabBarIcon/index";
-import {isIos, isX} from "../../utils/common";
+import {isIos} from "../../utils/common";
+
 import {HelveticaMediumText} from "../StyledText";
 
 export class Menu extends Component {
@@ -43,26 +51,21 @@ export class Menu extends Component {
     this.animatedOpacity.setValue(initialOpacity);
     Animated.timing(this.animatedHeight, {
       toValue: finalHeight,
-      duration: 300,
-      easing: Easing.linear,
+      duration: MENU_ANIMATION_DURATION,
+      easing: Easing.bezier(0, 1, 0.6, 1),
     }).start();
     Animated.timing(this.animatedOpacity, {
       toValue: finalOpacity,
-      duration: 300,
-      easing: Easing.linear,
+      duration: MENU_ANIMATION_DURATION,
+      easing: Easing.bezier(0, 1, 0.6, 1),
     }).start();
   };
 
   render() {
     const {hideMenu, opened} = this.props;
-    // if (!opened) {
-    //   setTimeout(() => {
-    //     this.isOpened = opened;
-    //   }, 300);
-    // }
     const animatedStyle = {
       transform: [{translateY: this.animatedHeight}],
-      paddingTop: (isIos && ((isX && 40) || 20)) || 0,
+      paddingTop: PADDING_TOP,
       opacity: this.animatedOpacity,
     };
 
@@ -73,58 +76,81 @@ export class Menu extends Component {
         visible={opened}
         onRequestClose={() => hideMenu()}
       >
-        <View style={styles.overlay} />
-        <Animated.View style={[styles.container, animatedStyle]}>
-          <View style={styles.header}>
-            <IconButton
-              onClick={() => hideMenu()}
-              name="three-bars"
-              size={32}
-              iconSet="Octicons"
-              style={styles.menuIcon}
-            />
-            <HelveticaMediumText style={styles.headerText}>
-              MENU
-            </HelveticaMediumText>
-          </View>
-          <FlatList
-            style={styles.list}
-            data={[
-              {
-                key: "option1",
-                text: "Instant Savings Option",
-                image: require("../../assets/images/tab1_inactive.png"),
-              },
-              {
-                key: "option2",
-                text: "Super Savings",
-                image: require("../../assets/images/tab2_inactive.png"),
-              },
-              {
-                key: "option3",
-                text: "About",
-                image: require("../../assets/images/tab2_inactive.png"),
-              },
-            ]}
-            renderItem={({item}) => (
-              <TabBarContent
-                key={item.text}
-                image={item.image}
-                text={item.text}
-                style={styles.menuItem}
-                textStyle={styles.menuItemText}
-                onClick={() => console.log(`${item.text} PRESSED`)}
+        <TouchableHighlight style={styles.overlay} onPress={() => hideMenu()}>
+          <Animated.View style={[styles.container, animatedStyle]}>
+            <View style={styles.header}>
+              <IconButton
+                onClick={() => hideMenu()}
+                name="three-bars"
+                size={32}
+                iconSet="Octicons"
+                style={styles.menuIcon}
               />
-            )}
-          />
-        </Animated.View>
+              <HelveticaMediumText style={styles.headerText}>
+                MENU
+              </HelveticaMediumText>
+            </View>
+            <FlatList
+              style={styles.list}
+              data={[
+                {
+                  key: "option1",
+                  text: "Instant Savings Option",
+                  image: require("../../assets/images/tab1_inactive.png"),
+                },
+                {
+                  key: "option2",
+                  text: "Super Savings",
+                  image: require("../../assets/images/tab2_inactive.png"),
+                },
+                {
+                  key: "option3",
+                  text: "About",
+                  image: require("../../assets/images/tab2_inactive.png"),
+                },
+              ]}
+              renderItem={({item}) => (
+                <TabBarContent
+                  key={item.text}
+                  image={item.image}
+                  text={item.text}
+                  style={styles.menuItem}
+                  textStyle={styles.menuItemText}
+                  onClick={() => console.log(`${item.text} PRESSED`)}
+                />
+              )}
+            />
+            <View style={styles.linskArea}>
+              <Text
+                style={styles.link}
+                onPress={() => Linking.openURL("https://www.google.com")}
+              >
+                Usage Agreement
+              </Text>
+              <Text
+                style={styles.link}
+                onPress={() => Linking.openURL("https://www.google.com")}
+              >
+                Hippa Privacy Rights & Practices
+              </Text>
+            </View>
+          </Animated.View>
+        </TouchableHighlight>
       </Modal>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  overlay: {
+    backgroundColor: colors.bgWhiteVeil,
+    width: "100%",
+    flex: 1,
+    position: "relative",
+    zIndex: 2,
+  },
   container: {
+    position: "relative",
     width: "100%",
     overflow: "hidden",
     top: 0,
@@ -132,17 +158,7 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.primary,
     borderBottomWidth: 3,
     backgroundColor: colors.primary,
-  },
-  overlay: {
-    backgroundColor: colors.bgPrimary,
-    opacity: 0.6,
-    position: "absolute",
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    width: "100%",
-    flex: 1,
+    zIndex: 10,
   },
   header: {
     marginTop: 3.8,
@@ -154,7 +170,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
   },
   headerText: {
-    paddingTop: 9,
+    paddingTop: isIos ? 9 : -1,
     paddingLeft: 20,
     fontSize: 22,
     lineHeight: 30,
@@ -165,6 +181,7 @@ const styles = StyleSheet.create({
     marginRight: 0,
   },
   list: {
+    paddingVertical: 20,
     backgroundColor: colors.bgPrimary,
   },
   menuItem: {
@@ -175,6 +192,20 @@ const styles = StyleSheet.create({
   menuItemText: {
     fontSize: 22,
     marginLeft: 15,
+  },
+  linskArea: {
+    backgroundColor: colors.tintColor,
+    paddingTop: 4,
+    paddingBottom: 12,
+  },
+  link: {
+    fontSize: 18,
+    textAlign: "center",
+    color: colors.textBasic,
+    textDecorationLine: "underline",
+    textDecorationStyle: "solid",
+    textDecorationColor: colors.textBasic,
+    padding: 10,
   },
 });
 

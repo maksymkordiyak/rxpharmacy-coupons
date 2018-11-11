@@ -1,5 +1,6 @@
 import {StyleSheet} from "react-native";
 import {colors} from "../../constants/Colors";
+import {isIos} from "../../utils/common";
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -22,12 +23,13 @@ export const styles = StyleSheet.create({
     opacity: 0.7,
   },
   pharmacyHeaderText: {
+    marginTop: isIos ? -1 : -5,
     fontSize: 30,
     letterSpacing: -0.01,
     color: colors.textPrimary,
   },
   basicHeaderText: {
-    paddingTop: 6,
+    marginTop: isIos ? 6 : -1,
     paddingLeft: 22,
     fontSize: 22,
     lineHeight: 30,

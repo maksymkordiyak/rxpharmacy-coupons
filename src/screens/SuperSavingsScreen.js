@@ -1,6 +1,5 @@
 import React, {Fragment} from "react";
-import {ScrollView, StyleSheet} from "react-native";
-import {ExpoLinksView} from "@expo/samples";
+import {ScrollView, StyleSheet, Text} from "react-native";
 import Menu from "../components/Menu";
 
 export default class SuperSavingsScreen extends React.Component {
@@ -9,7 +8,7 @@ export default class SuperSavingsScreen extends React.Component {
       <Fragment>
         <Menu />
         <ScrollView style={styles.container}>
-          <ExpoLinksView />
+          <Text>SuperSavingsScreen</Text>
         </ScrollView>
       </Fragment>
     );

@@ -46,7 +46,7 @@ HomeStack.navigationOptions = {
           ? require("../assets/images/tab1_active.png")
           : require("../assets/images/tab1_inactive.png")
       }
-      text="INSTANT SAVINGS OPTION"
+      text={["INSTANT SAVINGS", "OPTION"]}
     />
   ),
   tabBarOptions,
@@ -80,7 +80,7 @@ LinksStack.navigationOptions = {
           ? require("../assets/images/tab2_active.png")
           : require("../assets/images/tab2_inactive.png")
       }
-      text="SUPER SAVINGS OPTION"
+      text={["SUPER SAVINGS", "OPTION"]}
     />
   ),
   tabBarOptions,

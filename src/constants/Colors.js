@@ -2,6 +2,7 @@ const tintColor = "#f0f8f9";
 const redColor = "#dc4f2c";
 const whiteColor = "#ffffff";
 const whiteVeil = "rgba(255, 255, 255, 0.5)";
+const lightGreenColor = "#8cc63f";
 const greenColor = "#64a143";
 const darkGreenColor = "#129a8d";
 const blueColor = "#2392c5";
@@ -14,6 +15,7 @@ export const colors = {
   greenColor,
   darkGreenColor,
   blueColor,
+  lightGreenColor,
   primary: darkGreenColor,
   bgPrimary: whiteColor,
   bgWhiteVeil: whiteVeil,

@@ -9,6 +9,7 @@ export const Button = ({
   iconSet,
   buttonSize,
   style,
+  textStyle,
   left,
   right,
   middle,
@@ -33,7 +34,7 @@ export const Button = ({
     >
       {left && <Icon name={left} size={size} color={color} iconSet={iconSet} />}
       {middle && (
-        <Text style={styles.btnText} ellipsizeMode="tail">
+        <Text style={[styles.btnText, textStyle]} ellipsizeMode="tail">
           {middle.toUpperCase()}
         </Text>
       )}
@@ -45,14 +46,15 @@ export const Button = ({
 };
 
 Button.propTypes = {
-  type: oneOf(Object.keys(BUTTON_TYPES)),
-  iconSet: oneOf(Object.keys(ICON_SETS)).isRequired,
+  type: oneOf(Object.keys(BUTTON_TYPES)).isRequired,
+  iconSet: oneOf(Object.keys(ICON_SETS)),
   buttonSize: oneOf(Object.keys(BUTTON_SIZES)),
   middle: string.isRequired,
   left: string,
   right: string,
   onClick: func,
   style: object,
+  textStyle: object,
   color: string,
   size: number,
   disabled: bool,

@@ -1,6 +1,6 @@
 import React from "react";
 import {Image, StyleSheet, TouchableOpacity, Text, View} from "react-native";
-import {bool, func, number, oneOfType, object, string} from "prop-types";
+import {array, bool, func, number, oneOfType, object, string} from "prop-types";
 import {colors} from "../../constants/Colors";
 
 export const TabBarContent = ({
@@ -21,7 +21,7 @@ export const TabBarContent = ({
           textStyle,
         ]}
       >
-        {text}
+        {Array.isArray(text) ? text.join("\n") : text}
       </Text>
     </View>
   );
@@ -50,11 +50,11 @@ const styles = StyleSheet.create({
   },
   tabTextActive: {
     color: colors.textPrimary,
-    maxWidth: "70%",
+    // maxWidth: "70%",
   },
   tabTextInactive: {
     color: colors.textInvert,
-    maxWidth: "70%",
+    // maxWidth: "70%",
   },
   tabImage: {
     width: 30,
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
 
 TabBarIcon.propTypes = {
   image: number.isRequired,
-  text: string.isRequired,
+  text: oneOfType([string, array]).isRequired,
   focused: bool,
   style: object,
   textStyle: object,

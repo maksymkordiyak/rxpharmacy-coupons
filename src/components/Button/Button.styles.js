@@ -7,12 +7,14 @@ export const BUTTON_TYPES = Object.freeze({
   primary: colors.primary,
   secondary: colors.secondary,
   tertiary: colors.tertiary,
+  lightGreen: colors.lightGreenColor,
 });
 
 export const BUTTON_SIZES = Object.freeze({
   small: 31.7,
   medium: 34.1,
   large: 39.6,
+  xlarge: 50.5,
 });
 
 export const styles = StyleSheet.create({

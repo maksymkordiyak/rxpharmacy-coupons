@@ -33,7 +33,7 @@ class Autocomplete extends Component {
   async triggerChange() {
     const {inputValue} = this.state;
     try {
-      const drugs = await API.searchDrugNames({term: inputValue});
+      const drugs = await API.searchDrugNames({search: inputValue});
 
       this.setState({items: drugs});
     } catch (error) {
@@ -45,7 +45,7 @@ class Autocomplete extends Component {
     const {inputValue} = this.state;
 
     const highlightedText = highlightString(
-      capitalizeFirstLetter(item),
+      capitalizeFirstLetter(item.name),
       inputValue,
       colors.darkGreenColor,
     );
@@ -77,6 +77,8 @@ class Autocomplete extends Component {
     const {inputValue, items} = this.state;
     const {sectionName, placeholder} = this.props;
 
+    const displayListCheck = items.length > 0 && inputValue;
+
     return (
       <View style={styles.container}>
         <Icon
@@ -94,7 +96,7 @@ class Autocomplete extends Component {
           autoCorrect={false}
           onChangeText={text => this.handleInputChange(text)}
         />
-        {inputValue && items.length > 0 ? (
+        {displayListCheck ? (
           <View style={styles.listShadow}>
             <SectionList
               style={styles.list}

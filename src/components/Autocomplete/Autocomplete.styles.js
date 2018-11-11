@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
     textDecorationLine: "none",
     paddingLeft: 40,
     height: 42,
-    width: 358,
+    maxWidth: 358,
     borderWidth: 1,
     borderRadius: 6,
     borderColor: colors.primary,

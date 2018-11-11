@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
   introBtnBg: {
     width: 270,
     height: 66.3,
+    marginLeft: 10,
   },
   introBtn: {
     width: 250,

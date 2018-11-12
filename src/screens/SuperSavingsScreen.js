@@ -27,40 +27,23 @@ export default class SuperSavingsScreen extends React.Component {
               <View>
                 <Text>Zip: {zip}</Text>
               </View>
-              <View>
-                <Button
-                  type="transparent"
-                  iconSet="MaterialIcons"
-                  buttonSize="medium"
-                  middle="Change Location"
-                  left="location-on"
-                  preserveInputCase
-                  color={colors.primary}
-                  textStyle={styles.textStyle}
-                />
-              </View>
-            </View>
-            <View style={styles.optionsRow}>
-              <View>
-                <Text>Number of Prescriptions: {numberOfPrescriptions}</Text>
-              </View>
-              <View>
-                <Button
-                  type="transparent"
-                  iconSet="Entypo"
-                  buttonSize="medium"
-                  middle="Change Location"
-                  left="location-pin"
-                  preserveInputCase
-                  textStyle={styles.textStyle}
-                />
-              </View>
+              <Button
+                type="transparent"
+                iconSet="MaterialIcons"
+                buttonSize="medium"
+                middle="Change Location"
+                left="location-on"
+                preserveInputCase
+                color={colors.primary}
+                textStyle={styles.textStyle}
+              />
             </View>
           </View>
           <DrugForm
-            onSubmit={values =>
-              Alert.alert("Submitted!", JSON.stringify(values))
-            }
+            onSubmit={values => {
+              console.log(values);
+              Alert.alert("Submitdted!", JSON.stringify(values));
+            }}
           />
         </ScrollView>
       </Fragment>
@@ -71,7 +54,6 @@ export default class SuperSavingsScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
     backgroundColor: "#fff",
   },
   options: {

@@ -25,6 +25,7 @@ export default class App extends React.Component {
         ArialBold: require("./src/assets/fonts/arialbd.ttf"),
         HelveticaBold: require("./src/assets/fonts/HelveticaNeueLTStd-Bd_0.otf"),
         HelveticaLight: require("./src/assets/fonts/HelveticaNeueLTStd-LtIt.otf"),
+        HelveticaRegular: require("./src/assets/fonts/HelveticaNeueLTStd-Roman_0.otf"),
         HelveticaMedium: require("./src/assets/fonts/HelveticaNeueLTStd-Md_0.otf"),
         RokkittBold: require("./src/assets/fonts/Rokkitt-Bold.ttf"),
         Rokkitt: require("./src/assets/fonts/Rokkitt-Regular.ttf"),

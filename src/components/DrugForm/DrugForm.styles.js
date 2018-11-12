@@ -4,6 +4,7 @@ import {colors} from "../../constants/Colors";
 export default StyleSheet.create({
   container: {
     paddingTop: 0,
+    zIndex: 1,
   },
   optionsRow: {
     display: "flex",
@@ -36,7 +37,8 @@ export default StyleSheet.create({
     marginLeft: 4,
   },
   prescriptions: {
-    fontSize: 17,
+    fontSize: 16,
+    height: 16,
     color: colors.primary,
   },
   prescriptionsNumber: {
@@ -53,5 +55,8 @@ export default StyleSheet.create({
     color: colors.textBasic,
     fontSize: 18,
     textAlign: "center",
+  },
+  list: {
+    zIndex: 2,
   },
 });

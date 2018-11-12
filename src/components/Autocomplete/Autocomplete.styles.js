@@ -5,6 +5,9 @@ export const styles = StyleSheet.create({
   container: {
     display: "flex",
     flexDirection: "column",
+    flexWrap: "wrap",
+    flexGrow: 0,
+    flexShrink: 0,
     maxWidth: "100%",
   },
   plus: {
@@ -13,14 +16,21 @@ export const styles = StyleSheet.create({
     top: 9,
   },
   list: {
-    width: 358,
-    backgroundColor: "white",
-    paddingTop: 6,
-    marginTop: -6,
+    minWidth: "80%",
+    backgroundColor: colors.bgPrimary,
+    paddingTop: 0,
+    marginTop: 0,
     borderWidth: 1,
     borderColor: colors.primary,
+    maxHeight: 300,
   },
   listShadow: {
+    backgroundColor: colors.bgPrimary,
+    position: "absolute",
+    zIndex: 3,
+    top: 50,
+    right: "4%",
+    left: "8%",
     elevation: 4,
     shadowOffset: {width: 6, height: 9},
     shadowColor: colors.darkConcrete,
@@ -48,18 +58,25 @@ export const styles = StyleSheet.create({
     paddingLeft: 15,
     paddingTop: 6,
     height: 41,
+    justifyContent: "center",
   },
   listItemText: {
     fontSize: 19,
+    height: 19,
+    justifyContent: "center",
     color: colors.muddyGray,
   },
   listHeader: {
-    height: 35.8,
+    height: 41.8,
+    justifyContent: "center",
+    paddingTop: 0,
+    backgroundColor: colors.bgPrimary,
     borderBottomWidth: 1,
     borderBottomColor: colors.primary,
   },
   listHeaderText: {
     fontSize: 17,
+    height: 17,
     color: colors.darkConcrete,
   },
   separator: {
@@ -68,5 +85,8 @@ export const styles = StyleSheet.create({
   },
   sectionSeparator: {
     backgroundColor: colors.primary,
+  },
+  active: {
+    zIndex: 100,
   },
 });

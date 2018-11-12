@@ -20,6 +20,8 @@ export const BUTTON_SIZES = Object.freeze({
 
 export const styles = StyleSheet.create({
   buttonContainer: {
+    position: "relative",
+    zIndex: 0,
     borderRadius: 5,
     width: "auto",
     flexDirection: "row",

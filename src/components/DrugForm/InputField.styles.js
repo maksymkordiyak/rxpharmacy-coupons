@@ -4,8 +4,10 @@ import {colors} from "../../constants/Colors";
 export default StyleSheet.create({
   inputContainer: {
     display: "flex",
+    flexShrink: 0,
+    flexGrow: 0,
     flexDirection: "row",
-    flexWrap: "nowrap",
+    flexWrap: "wrap",
     alignItems: "center",
     borderTopWidth: 1,
     borderBottomWidth: 1,
@@ -15,6 +17,7 @@ export default StyleSheet.create({
   },
   input: {
     minWidth: "88%",
+    maxHeight: 40,
   },
   invalid: {
     color: colors.errorText,
@@ -26,5 +29,8 @@ export default StyleSheet.create({
     fontSize: 20,
     width: "7%",
     textAlign: "center",
+  },
+  active: {
+    zIndex: 100,
   },
 });

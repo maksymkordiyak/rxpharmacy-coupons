@@ -12,12 +12,17 @@ export const InputField = ({
   ...inputProps
 }) => {
   let validationStyles;
+  let activeStyles;
   if (touched && !active) {
     validationStyles = !valid && styles.invalid;
   }
+  if (active) {
+    console.log("isActive", index);
+    activeStyles = styles.active;
+  }
 
   return (
-    <View style={[styles.inputContainer, validationStyles]}>
+    <View style={[styles.inputContainer, validationStyles, activeStyles]}>
       <HelveticaBoldText style={styles.index}>{index}</HelveticaBoldText>
       <Autocomplete
         {...inputProps}
@@ -25,7 +30,8 @@ export const InputField = ({
         onBlur={input.onBlur}
         onFocus={input.onFocus}
         value={input.value}
-        style={styles.input}
+        style={[styles.input, activeStyles]}
+        active={active}
       />
       {touched && error && <Text styles={styles.invalid}>{error}</Text>}
     </View>

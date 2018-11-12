@@ -1,6 +1,6 @@
 import {has} from "underscore";
 export const validate = values => {
-  console.log("VALUES", values);
+  // console.log("VALUES", values);
   const errors = {};
   if (!values.zipCode) {
     errors.zipCode = "Required";
@@ -16,7 +16,7 @@ export const validate = values => {
       errors.drugsList = drugsArrayErrors;
     }
   }
-  console.log("ERRORS", errors);
+  // console.log("ERRORS", errors);
 
   return errors;
 };

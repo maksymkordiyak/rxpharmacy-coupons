@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, {Component, Fragment} from "react";
 import {SectionList, TextInput, TouchableOpacity, View} from "react-native";
 import {bool, func, string} from "prop-types";
 import {colors} from "../../constants/Colors";
@@ -45,6 +45,7 @@ class Autocomplete extends Component {
   }
 
   setItem(value) {
+    console.log(value);
     this.props.onChange(capitalizeFirstLetter(value));
     this.setState({inputValue: value, hideList: true});
   }
@@ -96,27 +97,37 @@ class Autocomplete extends Component {
 
   render() {
     const {inputValue, hideList, items} = this.state;
-    const {sectionName, placeholder, style} = this.props;
-
+    const {
+      sectionName,
+      placeholder,
+      style,
+      active,
+      onBlur,
+      onFocus,
+    } = this.props;
     const displayListCheck = !hideList && (items.length > 0 && inputValue);
 
     return (
-      <View style={styles.container}>
-        <Icon
-          iconSet="Octicons"
-          size={20}
-          style={styles.plus}
-          name="plus"
-          color={colors.concrete}
-        />
-        <TextInput
-          style={[styles.input, style]}
-          placeholder={placeholder}
-          placeholderTextColor={colors.concrete}
-          value={inputValue}
-          autoCorrect={false}
-          onChangeText={text => this.handleInputChange(text)}
-        />
+      <Fragment>
+        <View style={styles.container}>
+          <Icon
+            iconSet="Octicons"
+            size={20}
+            style={styles.plus}
+            name="plus"
+            color={colors.concrete}
+          />
+          <TextInput
+            onBlur={() => onBlur()}
+            onFocus={() => onFocus()}
+            style={[styles.input, style]}
+            placeholder={placeholder}
+            placeholderTextColor={colors.concrete}
+            value={inputValue}
+            autoCorrect={false}
+            onChangeText={text => this.handleInputChange(text)}
+          />
+        </View>
         {displayListCheck ? (
           <View style={styles.listShadow}>
             <SectionList
@@ -139,7 +150,7 @@ class Autocomplete extends Component {
             />
           </View>
         ) : null}
-      </View>
+      </Fragment>
     );
   }
 }
@@ -155,6 +166,7 @@ Autocomplete.propTypes = {
   sectionName: string,
   placeholder: string,
   highlightText: bool,
+  active: bool,
 };
 
 export default Autocomplete;

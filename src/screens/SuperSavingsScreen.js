@@ -11,8 +11,13 @@ export default class SuperSavingsScreen extends Component {
     return (
       <Fragment>
         <Menu />
-        <ScrollView style={styles.container}>
+        <ScrollView
+          style={styles.container}
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{flex: "auto"}}
+        >
           <DrugForm
+            style={{marginBottom: 100}}
             onSubmit={values => {
               console.log(values);
               Alert.alert("Submitted!", JSON.stringify(values));

@@ -13,21 +13,21 @@ import {
 } from "../StyledText";
 
 export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
-  <Fragment>
+  <View style={styles.list}>
     <Field name="zipCode" component={AddLocation} />
     <View style={styles.optionsRow}>
       <View>
         <HelveticaMediumText style={styles.prescriptions}>
           Number of Prescriptions:{" "}
           <HelveticaBoldText style={styles.prescriptionsNumber}>
-            {fields.length + 1}
+            {fields.length}
           </HelveticaBoldText>
         </HelveticaMediumText>
       </View>
       <View style={styles.quantityButtons}>
         <View>
           <Button
-            disabled={fields.length < 1}
+            disabled={fields.length < 2}
             type="secondary"
             left="md-remove"
             size={20}
@@ -37,12 +37,12 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
         </View>
         <View style={styles.addButton}>
           <Button
-            disabled={fields.length >= 9}
+            disabled={fields.length > 9}
             type="secondary"
             left="md-add"
             size={20}
             iconSet="Ionicons"
-            onClick={() => fields.length < 9 && fields.push({})}
+            onClick={() => fields.length < 10 && fields.push({})}
           />
         </View>
       </View>
@@ -53,35 +53,30 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
         savings.
       </HelveticaRegularText>
     </View>
-    <View key="drug_0">
-      <Field
-        name="drug_0"
-        component={InputField}
-        placeholder="Add a Drug"
-        index={1}
-      />
-    </View>
     {submitFailed && error && <Text style={styles.errorText}>{error}</Text>}
     {fields.map((drug, index) => {
-      const properIndex = index + 1;
+      const properIndex = index;
 
       return (
-        <View key={`drug_${properIndex}`}>
-          <Field
-            name={`drug_${properIndex}`}
-            component={InputField}
-            placeholder="Add a Drug"
-            index={properIndex + 1}
-          />
-        </View>
+        <Field
+          key={`drug_${properIndex}`}
+          name={`drug_${properIndex}`}
+          component={InputField}
+          placeholder="Add a Drug"
+          index={properIndex + 1}
+        />
       );
     })}
-  </Fragment>
+  </View>
 );
 
 export const MyForm = ({handleSubmit, submitting, pristine}) => (
-  <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
-    <FieldArray name="drugsList" component={renderDrugsList} />
+  <View style={styles.container}>
+    <FieldArray
+      name="drugsList"
+      component={renderDrugsList}
+      style={{zIndex: 2}}
+    />
     <Button
       disabled={pristine || submitting}
       style={styles.submitBtn}
@@ -92,10 +87,13 @@ export const MyForm = ({handleSubmit, submitting, pristine}) => (
       middle="Finalize Discount"
       iconSet="Ionicons"
     />
-  </ScrollView>
+  </View>
 );
 
 export default reduxForm({
   form: "drugsForm",
   validate,
+  initialValues: {
+    drugsList: [{}],
+  },
 })(MyForm);

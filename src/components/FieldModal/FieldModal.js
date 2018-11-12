@@ -1,15 +1,16 @@
 import React, {Component} from "react";
-import {Modal, TextInput, View} from "react-native";
-import {bool, func} from "prop-types";
+import {Modal, Text, View} from "react-native";
+import {bool, func, object} from "prop-types";
 import {colors} from "../../constants/Colors";
 import Autocomplete from "../Autocomplete";
-import {IconButton} from "../Button";
-import {HelveticaMediumText} from "../StyledText";
+import {Button} from "../Button";
+import {HelveticaBoldText, HelveticaRegularText} from "../StyledText";
+import Divider from "../Divider";
 import styles from "./FieldModal.styles";
 
 export class FieldModal extends Component {
   render() {
-    const {opened, onClose, onChange} = this.props;
+    const {opened = false, onClose, input, error} = this.props;
 
     return (
       <Modal
@@ -19,20 +20,31 @@ export class FieldModal extends Component {
         onRequestClose={() => onClose()}
       >
         <View style={styles.container}>
-          <IconButton
-            iconSet="Ionicons"
-            name="md-close"
-            color={colors.textInvert}
-            onClick={() => onClose()}
-            size={20}
-          />
-          <HelveticaMediumText>Test</HelveticaMediumText>
-          <Autocomplete />
-          <TextInput
-            style={styles.input}
-            onChangeText={ev => onChange(ev)}
-            label="Test"
-          />
+          <View style={styles.column}>
+            <Button
+              style={styles.closeBtn}
+              type="transparent"
+              iconSet="Ionicons"
+              middle="CLOSE"
+              right="md-close"
+              color={colors.primary}
+              textStyle={styles.closeBtnText}
+              onClick={() => onClose()}
+              size={20}
+            />
+            <HelveticaBoldText style={styles.header}>
+              Change Your Location
+            </HelveticaBoldText>
+          </View>
+          <Divider />
+          <HelveticaRegularText style={styles.text}>
+            Enter your location to
+          </HelveticaRegularText>
+          <HelveticaRegularText style={[styles.text, styles.gutterBottom]}>
+            pharmacy drug pricing in near you.
+          </HelveticaRegularText>
+          <Autocomplete onChangeText={val => input.onChange(val)} />
+          {error && <Text>{error}</Text>}
         </View>
       </Modal>
     );
@@ -40,9 +52,9 @@ export class FieldModal extends Component {
 }
 
 FieldModal.propTypes = {
+  input: object.isRequired,
   opened: bool.isRequired,
   onClose: func.isRequired,
-  onChange: func.isRequired,
 };
 
 export default FieldModal;

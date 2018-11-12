@@ -79,6 +79,10 @@ class Autocomplete extends Component {
     );
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.timer);
+  }
+
   render() {
     const {inputValue, items} = this.state;
     const {sectionName, placeholder} = this.props;

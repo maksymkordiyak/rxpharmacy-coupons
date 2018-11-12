@@ -57,7 +57,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
       <Field
         name="drug_0"
         component={InputField}
-        placeholder="Add a drug"
+        placeholder="Add a Drug"
         index={1}
       />
     </View>
@@ -70,7 +70,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
           <Field
             name={`drug_${properIndex}`}
             component={InputField}
-            placeholder="Add a drug"
+            placeholder="Add a Drug"
             index={properIndex + 1}
           />
         </View>

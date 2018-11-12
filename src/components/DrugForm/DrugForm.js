@@ -42,7 +42,7 @@ export const renderDrugsList = ({fields}) => (
 
 export const MyForm = props => (
   <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
-    <FieldArray name="members" component={renderDrugsList} />
+    <FieldArray name="drugsList" component={renderDrugsList} />
     <Button
       style={styles.submitBtn}
       onClick={props.handleSubmit}

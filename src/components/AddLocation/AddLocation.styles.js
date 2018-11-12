@@ -13,6 +13,7 @@ export default StyleSheet.create({
     justifyContent: "space-between",
     flexWrap: "nowrap",
     height: 40.7,
+    paddingHorizontal: 11,
   },
   row: {
     display: "flex",

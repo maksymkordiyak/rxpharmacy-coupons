@@ -8,6 +8,7 @@ import rootReducer from "../reducers"; // Import the reducer
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["form"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -14,14 +14,16 @@ export const InputField = ({input, meta, ...inputProps}) => {
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
-      <Autocomplete
-        {...inputProps}
-        onChangeText={input.onChange}
-        onBlur={input.onBlur}
-        onFocus={input.onFocus}
-        value={input.value}
-        style={styles.input}
-      />
+      <View style={styles.autocomplete}>
+        <Autocomplete
+          {...inputProps}
+          onChangeText={input.onChange}
+          onBlur={input.onBlur}
+          onFocus={input.onFocus}
+          value={input.value}
+          style={styles.input}
+        />
+      </View>
     </View>
   );
 };

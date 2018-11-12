@@ -8,8 +8,8 @@ export default StyleSheet.create({
   },
   inputContainer: {
     display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    alignItems: "center",
+    justifyContent: "center",
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.4)",
@@ -23,5 +23,8 @@ export default StyleSheet.create({
   },
   index: {
     color: colors.tertiary,
+  },
+  autocomplete: {
+    width: 358,
   },
 });

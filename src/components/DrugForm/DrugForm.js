@@ -15,42 +15,42 @@ export const renderDrugsList = ({fields}) => (
   <Fragment>
     <Field name="zipCode" component={AddLocation} />
 
-      <View style={styles.optionsRow}>
-          <View>
-              <HelveticaMediumText style={styles.prescriptions}>
-                  Number of Prescriptions:{" "}
-                  <HelveticaBoldText style={styles.prescriptionsNumber}>
-                      {fields.length + 1}
-                  </HelveticaBoldText>
-              </HelveticaMediumText>
-          </View>
-          <View style={styles.quantityButtons}>
-              <View>
-                  <Button
-                      type="secondary"
-                      left="md-remove"
-                      size={20}
-                      iconSet="Ionicons"
-                      onClick={() => fields.remove(fields.length - 1)}
-                  />
-              </View>
-              <View style={styles.addButton}>
-                  <Button
-                      type="secondary"
-                      left="md-add"
-                      size={20}
-                      iconSet="Ionicons"
-                      onClick={() => fields.push({})}
-                  />
-              </View>
-          </View>
+    <View style={styles.optionsRow}>
+      <View>
+        <HelveticaMediumText style={styles.prescriptions}>
+          Number of Prescriptions:{" "}
+          <HelveticaBoldText style={styles.prescriptionsNumber}>
+            {fields.length + 1}
+          </HelveticaBoldText>
+        </HelveticaMediumText>
       </View>
-      <View style={styles.promoTextContainer}>
-          <HelveticaRegularText style={styles.promo}>
-              Add prescriptions to your list to {"\n"} the pharmacy with the best
-              savings.
-          </HelveticaRegularText>
+      <View style={styles.quantityButtons}>
+        <View>
+          <Button
+            type="secondary"
+            left="md-remove"
+            size={20}
+            iconSet="Ionicons"
+            onClick={() => fields.remove(fields.length - 1)}
+          />
+        </View>
+        <View style={styles.addButton}>
+          <Button
+            type="secondary"
+            left="md-add"
+            size={20}
+            iconSet="Ionicons"
+            onClick={() => fields.push({})}
+          />
+        </View>
       </View>
+    </View>
+    <View style={styles.promoTextContainer}>
+      <HelveticaRegularText style={styles.promo}>
+        Add prescriptions to your list to {"\n"} the pharmacy with the best
+        savings.
+      </HelveticaRegularText>
+    </View>
     <View key="drug_0">
       <Field name="drug_0" component={InputField} placeholder="Add a drug" />
     </View>

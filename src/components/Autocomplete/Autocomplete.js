@@ -43,17 +43,23 @@ class Autocomplete extends Component {
 
   renderItem(item, index) {
     const {inputValue} = this.state;
+    const {highlightText} = this.props;
 
-    const highlightedText = highlightString(
-      capitalizeFirstLetter(item.name),
-      inputValue,
-      colors.darkGreenColor,
-    );
+    let text;
+    if (highlightText) {
+      text = highlightString(
+        capitalizeFirstLetter(item.name),
+        inputValue,
+        colors.darkGreenColor,
+      );
+    } else {
+      text = item.name;
+    }
 
     return (
       <TouchableOpacity style={styles.listItem}>
         <HelveticaMediumText style={styles.listItemText} key={index}>
-          {highlightedText}
+          {text}
         </HelveticaMediumText>
       </TouchableOpacity>
     );
@@ -126,6 +132,7 @@ class Autocomplete extends Component {
 Autocomplete.defaultProps = {
   sectionName: "drugs",
   placeholder: "Add a Drug",
+  highlightText: true,
 };
 
 export default Autocomplete;

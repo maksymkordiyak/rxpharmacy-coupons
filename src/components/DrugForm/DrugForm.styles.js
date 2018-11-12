@@ -16,4 +16,5 @@ export default StyleSheet.create({
     marginTop: 25,
     padding: 5,
   },
+
 });

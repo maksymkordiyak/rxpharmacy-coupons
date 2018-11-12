@@ -1,9 +1,10 @@
 import React, {Fragment} from "react";
 import {reduxForm, Field, FieldArray} from "redux-form";
-import {ScrollView, View} from "react-native";
+import {ScrollView, Text, View} from "react-native";
 import {InputField} from "./InputField";
 import {Button} from "../Button";
 import styles from "./DrugForm.styles";
+import {colors} from "../../constants/Colors";
 
 export const renderDrugsList = ({fields}) => (
   <Fragment>

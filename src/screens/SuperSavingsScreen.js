@@ -1,9 +1,10 @@
 import React, {Fragment} from "react";
-import {ScrollView, StyleSheet, Text, View} from "react-native";
+import {Alert, ScrollView, StyleSheet, Text, View} from "react-native";
+import {MaterialIcons} from "@expo/vector-icons";
 import Menu from "../components/Menu";
 import {colors} from "../constants/Colors";
 import {Button} from "../components/Button";
-import {MaterialIcons} from "@expo/vector-icons";
+import DrugForm from "../components/DrugForm";
 export default class SuperSavingsScreen extends React.Component {
   constructor() {
     super();
@@ -56,6 +57,11 @@ export default class SuperSavingsScreen extends React.Component {
               </View>
             </View>
           </View>
+          <DrugForm
+            onSubmit={values =>
+              Alert.alert("Submitted!", JSON.stringify(values))
+            }
+          />
         </ScrollView>
       </Fragment>
     );

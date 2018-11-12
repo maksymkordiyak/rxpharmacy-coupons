@@ -32,13 +32,6 @@ export default class HomeScreen extends Component {
                 style={styles.welcomeImage}
               />
             </View>
-            <View style={{paddingLeft: 10}}>
-              <DrugForm
-                onSubmit={values =>
-                  Alert.alert("Submitted!", JSON.stringify(values))
-                }
-              />
-            </View>
           </ScrollView>
         </View>
       </Fragment>

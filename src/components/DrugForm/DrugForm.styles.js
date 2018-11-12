@@ -16,8 +16,10 @@ export default StyleSheet.create({
     paddingLeft: 28,
     paddingRight: 28,
     borderBottomWidth: 1,
-    borderTopColor: colors.primary,
     borderBottomColor: colors.primary,
+  },
+  errorText: {
+    color: colors.errorBackground,
   },
   submitBtn: {
     alignSelf: "center",

@@ -15,11 +15,10 @@ export default StyleSheet.create({
     borderColor: "rgba(0, 0, 0, 0.4)",
     marginTop: 20,
   },
-  valid: {
-    borderColor: "#53E69D",
-  },
   invalid: {
-    borderColor: "#F55E64",
+    color: colors.errorText,
+    borderBottomColor: colors.errorBackground,
+    borderBottomWidth: 1,
   },
   index: {
     color: colors.tertiary,

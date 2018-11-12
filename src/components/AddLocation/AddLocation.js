@@ -1,47 +1,71 @@
-import React from "react";
+import React, {Component} from "react";
 import {TextInput, Text, View} from "react-native";
 import {any, bool, func, shape, string} from "prop-types";
 import {Button} from "../Button";
+import FieldModal from "../FieldModal";
 import styles from "./AddLocation.styles";
 import {colors} from "../../constants/Colors";
 
-export const AddLocation = ({input, meta, ...inputProps}) => {
-  let validationStyles = null;
-  if (meta.touched && !meta.active) {
-    validationStyles = meta.valid ? styles.valid : styles.invalid;
-  }
+export class AddLocation extends Component {
+  state = {
+    opened: false,
+  };
 
-  return (
-    <View style={styles.options}>
-      <View style={styles.optionsRow}>
-        <View style={styles.row}>
-          <Text style={styles.text}>Zip:</Text>
-          <TextInput
-            {...inputProps}
-            editable={false}
-            onChangeText={input.onChange}
-            onBlur={input.onBlur}
-            onFocus={input.onFocus}
-            value={input.value}
-            style={[styles.input, validationStyles]}
-          />
+  toggleModal = () => {
+    const {opened} = this.state;
+    this.setState({opened: !opened});
+  };
+
+  render() {
+    const {
+      input,
+      meta: {touched, active, error, valid},
+      ...inputProps
+    } = this.props;
+    const {opened} = this.state;
+    let validationStyles;
+    if (touched && !active) {
+      validationStyles = !valid && styles.invalid;
+    }
+
+    return (
+      <View style={styles.options}>
+        <View style={styles.optionsRow}>
+          <View style={styles.row}>
+            <Text style={styles.text}>Zip:</Text>
+            <TextInput
+              {...inputProps}
+              editable={false}
+              onChangeText={input.onChange}
+              onBlur={input.onBlur}
+              onFocus={input.onFocus}
+              value={input.value}
+              style={[styles.input, validationStyles]}
+            />
+          </View>
+          <View>
+            <Button
+              type="transparent"
+              iconSet="MaterialIcons"
+              buttonSize="medium"
+              middle="Change Location"
+              left="location-on"
+              preserveInputCase
+              color={colors.primary}
+              textStyle={styles.primaryText}
+              onClick={this.toggleModal}
+            />
+          </View>
         </View>
-        <View>
-          <Button
-            type="transparent"
-            iconSet="MaterialIcons"
-            buttonSize="medium"
-            middle="Change Location"
-            left="location-on"
-            preserveInputCase
-            color={colors.primary}
-            textStyle={styles.primaryText}
-          />
-        </View>
+        <FieldModal
+          opened={opened}
+          onClose={this.toggleModal}
+          onChange={input.onChange}
+        />
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 
 AddLocation.propTypes = {
   input: shape({

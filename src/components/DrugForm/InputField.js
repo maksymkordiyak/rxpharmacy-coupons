@@ -1,13 +1,18 @@
 import React from "react";
-import {View} from "react-native";
+import {Text, View} from "react-native";
 import {any, bool, func, shape, string} from "prop-types";
 import styles from "./InputField.styles";
 import Autocomplete from "../Autocomplete";
 
-export const InputField = ({input, meta, ...inputProps}) => {
-  let validationStyles = null;
-  if (meta.touched && !meta.active) {
-    validationStyles = meta.valid ? styles.valid : styles.invalid;
+export const InputField = ({
+  input,
+  meta: {touched, active, error, valid},
+  index,
+  ...inputProps
+}) => {
+  let validationStyles;
+  if (touched && !active) {
+    validationStyles = !valid && styles.invalid;
   }
 
   const {index} = inputProps; // this is a number to display next to autocomplete
@@ -23,6 +28,8 @@ export const InputField = ({input, meta, ...inputProps}) => {
           value={input.value}
           style={styles.input}
         />
+        {touched && error && <Text styles={styles.invalid}>{error}</Text>}
+
       </View>
     </View>
   );

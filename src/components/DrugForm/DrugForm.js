@@ -1,6 +1,7 @@
 import React, {Fragment} from "react";
 import {reduxForm, Field, FieldArray} from "redux-form";
 import {ScrollView, Text, View} from "react-native";
+import {validate} from "./validate";
 import {InputField} from "./InputField";
 import AddLocation from "../AddLocation";
 import {Button} from "../Button";
@@ -11,7 +12,7 @@ import {
   HelveticaBoldText,
 } from "../StyledText";
 
-export const renderDrugsList = ({fields}) => (
+export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
   <Fragment>
     <Field name="zipCode" component={AddLocation} />
 
@@ -54,6 +55,7 @@ export const renderDrugsList = ({fields}) => (
     <View key="drug_0">
       <Field name="drug_0" component={InputField} placeholder="Add a drug" />
     </View>
+    {submitFailed && error && <Text style={styles.errorText}>{error}</Text>}
     {fields.map((drug, index) => {
       const properIndex = index + 1;
 
@@ -71,10 +73,11 @@ export const renderDrugsList = ({fields}) => (
   </Fragment>
 );
 
-export const MyForm = ({handleSubmit}) => (
+export const MyForm = ({handleSubmit, submitting}) => (
   <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
     <FieldArray name="drugsList" component={renderDrugsList} />
     <Button
+      disabled={submitting}
       style={styles.submitBtn}
       onClick={handleSubmit}
       type="secondary"
@@ -87,5 +90,6 @@ export const MyForm = ({handleSubmit}) => (
 );
 
 export default reduxForm({
-  form: "drugsFrom",
+  form: "drugsForm",
+  validate,
 })(MyForm);

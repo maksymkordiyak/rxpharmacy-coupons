@@ -1,48 +1,21 @@
-import React, {Fragment} from "react";
-import {Alert, ScrollView, StyleSheet, Text, View} from "react-native";
-import {MaterialIcons} from "@expo/vector-icons";
+import React, {Component, Fragment} from "react";
+import {Alert, ScrollView, StyleSheet} from "react-native";
 import Menu from "../components/Menu";
-import {colors} from "../constants/Colors";
-import {Button} from "../components/Button";
 import DrugForm from "../components/DrugForm";
-export default class SuperSavingsScreen extends React.Component {
-  constructor() {
-    super();
+import {colors} from "../constants/Colors";
 
-    this.state = {
-      zip: 70816,
-      numberOfPrescriptions: 3,
-    };
-  }
+export default class SuperSavingsScreen extends Component {
+  state = {};
 
   render() {
-    const {zip, numberOfPrescriptions} = this.state;
-
     return (
       <Fragment>
         <Menu />
         <ScrollView style={styles.container}>
-          <View style={styles.options}>
-            <View style={styles.optionsRow}>
-              <View>
-                <Text>Zip: {zip}</Text>
-              </View>
-              <Button
-                type="transparent"
-                iconSet="MaterialIcons"
-                buttonSize="medium"
-                middle="Change Location"
-                left="location-on"
-                preserveInputCase
-                color={colors.primary}
-                textStyle={styles.textStyle}
-              />
-            </View>
-          </View>
           <DrugForm
             onSubmit={values => {
               console.log(values);
-              Alert.alert("Submitdted!", JSON.stringify(values));
+              Alert.alert("Submitted!", JSON.stringify(values));
             }}
           />
         </ScrollView>

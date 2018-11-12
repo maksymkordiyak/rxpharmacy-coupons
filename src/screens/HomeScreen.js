@@ -1,8 +1,9 @@
 import React, {Component, Fragment} from "react";
-import {Image, ScrollView, StyleSheet, View} from "react-native";
+import {Alert, Image, ScrollView, StyleSheet, View} from "react-native";
 import {WebBrowser} from "expo";
 import {Button} from "../components/Button/index";
 import Autocomplete from "../components/Autocomplete/index";
+import DrugForm from "../components/DrugForm";
 import Menu from "../components/Menu";
 
 export default class HomeScreen extends Component {
@@ -32,15 +33,10 @@ export default class HomeScreen extends Component {
               />
             </View>
             <View style={{paddingLeft: 10}}>
-              <Autocomplete />
-            </View>
-            <View style={styles.getStartedContainer}>
-              <Button
-                type="secondary"
-                left="md-share"
-                size={20}
-                middle="Test"
-                iconSet="Ionicons"
+              <DrugForm
+                onSubmit={values =>
+                  Alert.alert("Submitted!", JSON.stringify(values))
+                }
               />
             </View>
           </ScrollView>
@@ -75,9 +71,5 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     marginTop: 3,
     marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: "center",
-    marginHorizontal: 50,
   },
 });

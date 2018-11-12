@@ -2,12 +2,13 @@ import React, {Fragment} from "react";
 import {reduxForm, Field, FieldArray} from "redux-form";
 import {ScrollView, Text, View} from "react-native";
 import {InputField} from "./InputField";
+import AddLocation from "../AddLocation";
 import {Button} from "../Button";
 import styles from "./DrugForm.styles";
-import {colors} from "../../constants/Colors";
 
 export const renderDrugsList = ({fields}) => (
   <Fragment>
+    <Field name="zipCode" component={AddLocation} />
     <View styles={styles.row}>
       <Button
         type="secondary"
@@ -41,12 +42,12 @@ export const renderDrugsList = ({fields}) => (
   </Fragment>
 );
 
-export const MyForm = props => (
+export const MyForm = ({handleSubmit}) => (
   <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
     <FieldArray name="drugsList" component={renderDrugsList} />
     <Button
       style={styles.submitBtn}
-      onClick={props.handleSubmit}
+      onClick={handleSubmit}
       type="secondary"
       right="md-arrow-dropright"
       size={20}

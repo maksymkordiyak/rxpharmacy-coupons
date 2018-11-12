@@ -53,7 +53,12 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
       </HelveticaRegularText>
     </View>
     <View key="drug_0">
-      <Field name="drug_0" component={InputField} placeholder="Add a drug" />
+      <Field
+        name="drug_0"
+        component={InputField}
+        placeholder="Add a drug"
+        index={1}
+      />
     </View>
     {submitFailed && error && <Text style={styles.errorText}>{error}</Text>}
     {fields.map((drug, index) => {
@@ -65,7 +70,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
             name={`drug_${properIndex}`}
             component={InputField}
             placeholder="Add a drug"
-            index={properIndex}
+            index={properIndex + 1}
           />
         </View>
       );
@@ -74,7 +79,7 @@ export const renderDrugsList = ({fields, meta: {error, submitFailed}}) => (
 );
 
 export const MyForm = ({handleSubmit, submitting}) => (
-  <ScrollView style={styles.container} keyboardShouldPersistTaps="handled">
+  <ScrollView keyboardShouldPersistTaps="handled">
     <FieldArray name="drugsList" component={renderDrugsList} />
     <Button
       disabled={submitting}
@@ -83,7 +88,7 @@ export const MyForm = ({handleSubmit, submitting}) => (
       type="secondary"
       right="md-arrow-dropright"
       size={20}
-      middle="SUBMIT"
+      middle="Finalize Discount"
       iconSet="Ionicons"
     />
   </ScrollView>

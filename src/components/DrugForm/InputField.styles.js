@@ -8,12 +8,15 @@ export default StyleSheet.create({
   },
   inputContainer: {
     display: "flex",
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
     borderTopWidth: 1,
     borderBottomWidth: 1,
     borderColor: "rgba(0, 0, 0, 0.4)",
     marginTop: 20,
+    paddingLeft: 11.2,
+    paddingRight: 21,
   },
   invalid: {
     color: colors.errorText,
@@ -22,8 +25,12 @@ export default StyleSheet.create({
   },
   index: {
     color: colors.tertiary,
+    fontSize: 20,
+    marginRight: 10,
   },
   autocomplete: {
     width: 358,
+    paddingTop: 24,
+    paddingBottom: 24,
   },
 });

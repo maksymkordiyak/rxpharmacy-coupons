@@ -3,6 +3,7 @@ import {Text, View} from "react-native";
 import {any, bool, func, shape, string} from "prop-types";
 import styles from "./InputField.styles";
 import Autocomplete from "../Autocomplete";
+import {HelveticaBoldText} from "../StyledText";
 
 export const InputField = ({
   input,
@@ -17,6 +18,9 @@ export const InputField = ({
 
   return (
     <View style={[styles.inputContainer, validationStyles]}>
+      <View>
+        <HelveticaBoldText style={styles.index}>{index}</HelveticaBoldText>
+      </View>
       <View style={styles.autocomplete}>
         <Autocomplete
           {...inputProps}
@@ -27,7 +31,6 @@ export const InputField = ({
           style={styles.input}
         />
         {touched && error && <Text styles={styles.invalid}>{error}</Text>}
-
       </View>
     </View>
   );

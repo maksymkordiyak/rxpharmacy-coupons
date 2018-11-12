@@ -15,8 +15,6 @@ export const InputField = ({
     validationStyles = !valid && styles.invalid;
   }
 
-  const {index} = inputProps; // this is a number to display next to autocomplete
-
   return (
     <View style={[styles.inputContainer, validationStyles]}>
       <View style={styles.autocomplete}>

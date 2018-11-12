@@ -8,6 +8,7 @@ export const BUTTON_TYPES = Object.freeze({
   secondary: colors.secondary,
   tertiary: colors.tertiary,
   lightGreen: colors.lightGreenColor,
+  transparent: "transparent",
 });
 
 export const BUTTON_SIZES = Object.freeze({

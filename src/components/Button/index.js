@@ -17,6 +17,7 @@ export const Button = ({
   color,
   size,
   disabled,
+  preserveInputCase,
 }) => {
   return (
     <TouchableOpacity
@@ -35,7 +36,7 @@ export const Button = ({
       {left && <Icon name={left} size={size} color={color} iconSet={iconSet} />}
       {middle && (
         <Text style={[styles.btnText, textStyle]} ellipsizeMode="tail">
-          {middle.toUpperCase()}
+          {preserveInputCase ? middle : middle.toUpperCase()}
         </Text>
       )}
       {right && (
@@ -58,6 +59,7 @@ Button.propTypes = {
   color: string,
   size: number,
   disabled: bool,
+  preserveInputCase: bool,
 };
 
 Button.defaultProps = {
